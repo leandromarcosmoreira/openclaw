@@ -1,0 +1,92 @@
+[
+  {
+    "source": "gateway",
+    "target": "puerta de enlace",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "channel",
+    "target": "canal",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "plugin",
+    "target": "complemento",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "agent",
+    "target": "agente",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "authentication",
+    "target": "autenticación",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "configuration",
+    "target": "configuración",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "installation",
+    "target": "instalación",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "troubleshooting",
+    "target": "solución de problemas",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "endpoint",
+    "target": "punto final",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "session",
+    "target": "sesión",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "workspace",
+    "target": "espacio de trabajo",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "skill",
+    "target": "habilidad",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "node",
+    "target": "nodo",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "instance",
+    "target": "instancia",
+    "ignore_case": true,
+    "whole_word": true
+  },
+  {
+    "source": "dashboard",
+    "target": "panel de control",
+    "ignore_case": true,
+    "whole_word": true
+  }
+]

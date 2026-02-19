@@ -490,10 +490,10 @@ export function renderUsage(props: UsageProps) {
           }
           <button
             class="usage-pin-btn ${props.headerPinned ? "active" : ""}"
-            title=${props.headerPinned ? "Unpin filters" : "Pin filters"}
+            title=${props.headerPinned ? t("usage.unpinFilters") : t("usage.pinFilters")}
             @click=${props.onToggleHeaderPinned}
           >
-            ${props.headerPinned ? "Pinned" : "Pin"}
+            ${props.headerPinned ? t("common.ok") : t("usage.pinFilters")}
           </button>
           <details
             class="usage-export-menu"

@@ -10,7 +10,7 @@ export function isSupportedLocale(value: string | null | undefined): value is Lo
 }
 
 class I18nManager {
-  private locale: Locale = "en";
+  private locale: Locale = "pt-BR";
   private translations: Record<Locale, TranslationMap> = { en } as Record<Locale, TranslationMap>;
   private subscribers: Set<Subscriber> = new Set();
 
@@ -23,14 +23,8 @@ class I18nManager {
     if (isSupportedLocale(saved)) {
       this.locale = saved;
     } else {
-      const navLang = navigator.language;
-      if (navLang.startsWith("zh")) {
-        this.locale = navLang === "zh-TW" || navLang === "zh-HK" ? "zh-TW" : "zh-CN";
-      } else if (navLang.startsWith("pt")) {
-        this.locale = "pt-BR";
-      } else {
-        this.locale = "en";
-      }
+      // Sempre usar português como padrão
+      this.locale = "pt-BR";
     }
   }
 

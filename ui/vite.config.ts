@@ -28,7 +28,7 @@ export default defineConfig(() => {
       include: ["lit/directives/repeat.js"],
     },
     build: {
-      outDir: path.resolve(here, "../dist/control-ui"),
+      outDir: path.resolve(here, "dist"),
       emptyOutDir: true,
       sourcemap: true,
     },

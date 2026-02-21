@@ -100,7 +100,7 @@ function renderDevices(props: NodesProps) {
         ${
           pending.length > 0
             ? html`
-              <div class="muted" style="margin-bottom: 8px;">Pending</div>
+              <div class="muted" style="margin-bottom: 8px;">${t("nodes.pendingLabel")}</div>
               ${pending.map((req) => renderPendingDevice(req, props))}
             `
             : nothing
@@ -108,7 +108,7 @@ function renderDevices(props: NodesProps) {
         ${
           paired.length > 0
             ? html`
-              <div class="muted" style="margin-top: 12px; margin-bottom: 8px;">Paired</div>
+              <div class="muted" style="margin-top: 12px; margin-bottom: 8px;">${t("nodes.pairedLabel")}</div>
               ${paired.map((device) => renderPairedDevice(device, props))}
             `
             : nothing
@@ -116,7 +116,7 @@ function renderDevices(props: NodesProps) {
         ${
           pending.length === 0 && paired.length === 0
             ? html`
-                <div class="muted">Nenhum dispositivo pareado.</div>
+                <div class="muted">${t("nodes.noPairedDevices")}</div>
               `
             : nothing
         }
@@ -127,9 +127,11 @@ function renderDevices(props: NodesProps) {
 
 function renderPendingDevice(req: PendingDevice, props: NodesProps) {
   const name = req.displayName?.trim() || req.deviceId;
-  const age = typeof req.ts === "number" ? formatRelativeTimestamp(req.ts) : "n/a";
-  const role = req.role?.trim() ? `role: ${req.role}` : "role: -";
-  const repair = req.isRepair ? " · repair" : "";
+  const age = typeof req.ts === "number" ? formatRelativeTimestamp(req.ts) : t("common.na");
+  const role = req.role?.trim()
+    ? t("nodes.role", { role: req.role })
+    : t("nodes.role", { role: "-" });
+  const repair = req.isRepair ? ` · ${t("nodes.repair")}` : "";
   const ip = req.remoteIp ? ` · ${req.remoteIp}` : "";
   return html`
     <div class="list-item">
@@ -137,7 +139,7 @@ function renderPendingDevice(req: PendingDevice, props: NodesProps) {
         <div class="list-title">${name}</div>
         <div class="list-sub">${req.deviceId}${ip}</div>
         <div class="muted" style="margin-top: 6px;">
-          ${role} · requested ${age}${repair}
+          ${role} · ${t("nodes.requested")} ${age}${repair}
         </div>
       </div>
       <div class="list-meta">
@@ -157,8 +159,8 @@ function renderPendingDevice(req: PendingDevice, props: NodesProps) {
 function renderPairedDevice(device: PairedDevice, props: NodesProps) {
   const name = device.displayName?.trim() || device.deviceId;
   const ip = device.remoteIp ? ` · ${device.remoteIp}` : "";
-  const roles = `roles: ${formatList(device.roles)}`;
-  const scopes = `scopes: ${formatList(device.scopes)}`;
+  const roles = t("nodes.roles", { roles: formatList(device.roles) });
+  const scopes = t("nodes.scopes", { scopes: formatList(device.scopes) });
   const tokens = Array.isArray(device.tokens) ? device.tokens : [];
   return html`
     <div class="list-item">
@@ -184,8 +186,8 @@ function renderPairedDevice(device: PairedDevice, props: NodesProps) {
 }
 
 function renderTokenRow(deviceId: string, token: DeviceTokenSummary, props: NodesProps) {
-  const status = token.revokedAtMs ? "revoked" : "active";
-  const scopes = `scopes: ${formatList(token.scopes)}`;
+  const status = token.revokedAtMs ? t("nodes.revoked") : t("nodes.active");
+  const scopes = t("nodes.scopes", { scopes: formatList(token.scopes) });
   const when = formatRelativeTimestamp(
     token.rotatedAtMs ?? token.createdAtMs ?? token.lastUsedAtMs ?? null,
   );
@@ -292,8 +294,8 @@ function renderBindings(state: BindingState) {
       ${
         state.formMode === "raw"
           ? html`
-              <div class="callout warn" style="margin-top: 12px">
-                Switch the Config tab to <strong>Form</strong> mode to edit bindings here.
+              <div class="callout warning" style="margin-top: 12px">
+                ${t("nodes.pairingModeHint")}
               </div>
             `
           : nothing
@@ -508,9 +510,9 @@ function renderNode(node: Record<string, unknown>) {
           ${typeof node.version === "string" ? ` · ${node.version}` : ""}
         </div>
         <div class="chip-row" style="margin-top: 6px;">
-          <span class="chip">${paired ? "paired" : "unpaired"}</span>
+          <span class="chip">${paired ? t("nodes.paired") : t("nodes.unpaired")}</span>
           <span class="chip ${connected ? "chip-ok" : "chip-warn"}">
-            ${connected ? "connected" : "offline"}
+            ${connected ? t("common.ok") : t("common.offline")}
           </span>
           ${caps.slice(0, 12).map((c) => html`<span class="chip">${String(c)}</span>`)}
           ${commands.slice(0, 8).map((c) => html`<span class="chip">${String(c)}</span>`)}

@@ -1,5 +1,5 @@
 import { html, nothing } from "lit";
-import { t } from "../../i18n/index.ts";
+import { t } from "../../i18n/lib/translate.ts";
 import type {
   ExecApprovalsAllowlistEntry,
   ExecApprovalsFile,
@@ -207,9 +207,9 @@ export function renderExecApprovals(state: ExecApprovalsState) {
     <section class="card">
       <div class="row" style="justify-content: space-between; align-items: center;">
         <div>
-          <div class="card-title">${t("nodesExec.title")}</div>
+          <div class="card-title">${t("nodes.bindingTitle")}</div>
           <div class="card-sub">
-            ${t("nodesExec.policySubtitle", { mono: "exec host=gateway/node" })}
+            ${t("nodes.bindingSubtitle")}
           </div>
         </div>
         <button
@@ -226,9 +226,9 @@ export function renderExecApprovals(state: ExecApprovalsState) {
       ${
         !ready
           ? html`<div class="row" style="margin-top: 12px; gap: 12px;">
-            <div class="muted">${t("nodes.loadingApprovals")}</div>
+            <div class="muted">${t("nodes.loadConfigToEdit")}</div>
             <button class="btn" ?disabled=${state.loading || !targetReady} @click=${state.onLoad}>
-              ${state.loading ? t("nodes.loadingApprovalsEllipsis") : t("nodes.loadApprovals")}
+              ${state.loading ? t("common.loading") : t("common.load")}
             </button>
           </div>`
           : html`
@@ -252,9 +252,9 @@ function renderExecApprovalsTarget(state: ExecApprovalsState) {
     <div class="list" style="margin-top: 12px;">
       <div class="list-item">
         <div class="list-main">
-          <div class="list-title">${t("nodesExec.target")}</div>
+          <div class="list-title">${t("nodes.node")}</div>
           <div class="list-sub">
-            ${t("nodesExec.targetSubtitle")}
+            ${t("nodes.pairedSubtitle")}
           </div>
         </div>
         <div class="list-main">
@@ -290,7 +290,7 @@ function renderExecApprovalsTarget(state: ExecApprovalsState) {
                       state.onSelectTarget("node", value ? value : null);
                     }}
                   >
-                    <option value="" ?selected=${nodeValue === ""}>${t("nodesExec.selectNode")}</option>
+                    <option value="" ?selected=${nodeValue === ""}>${t("common.select")}</option>
                     ${state.targetNodes.map(
                       (node) =>
                         html`<option
@@ -310,7 +310,7 @@ function renderExecApprovalsTarget(state: ExecApprovalsState) {
       ${
         state.target === "node" && !hasNodes
           ? html`
-              <div class="muted">${t("nodesExec.noNodesAdvertise")}</div>
+              <div class="muted">${t("nodes.noPairedDevices")}</div>
             `
           : nothing
       }
@@ -327,7 +327,7 @@ function renderExecApprovalsTabs(state: ExecApprovalsState) {
           class="btn btn--sm ${state.selectedScope === EXEC_APPROVALS_DEFAULT_SCOPE ? "active" : ""}"
           @click=${() => state.onSelectScope(EXEC_APPROVALS_DEFAULT_SCOPE)}
         >
-          ${t("nodesExec.defaults")}
+          ${t("common.default")}
         </button>
         ${state.agents.map((agent) => {
           const label = agent.name?.trim() ? `${agent.name} (${agent.id})` : agent.id;
@@ -365,14 +365,14 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
     <div class="list" style="margin-top: 16px;">
       <div class="list-item">
         <div class="list-main">
-          <div class="list-title">${t("nodesExec.securityLabel")}</div>
+          <div class="list-title">${t("common.security")}</div>
           <div class="list-sub">
-            ${isDefaults ? t("nodesExec.defaultSecurityMode") : t("nodesExec.defaultPrefix", { value: defaults.security })}
+            ${isDefaults ? t("nodes.defaultBindingSubtitle") : t("common.inherit")}
           </div>
         </div>
         <div class="list-meta">
           <label class="field">
-            <span>${t("nodesExec.mode")}</span>
+            <span>${t("common.mode")}</span>
             <select
               ?disabled=${state.disabled}
               @change=${(event: Event) => {
@@ -388,7 +388,7 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
               ${
                 !isDefaults
                   ? html`<option value="__default__" ?selected=${securityValue === "__default__"}>
-                    ${t("nodesExec.useDefaultWithVal", { value: defaults.security })}
+                    ${t("common.inherit")}
                   </option>`
                   : nothing
               }
@@ -408,14 +408,14 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
 
       <div class="list-item">
         <div class="list-main">
-          <div class="list-title">${t("nodesExec.askLabel")}</div>
+          <div class="list-title">${t("common.prompt")}</div>
           <div class="list-sub">
-            ${isDefaults ? t("nodesExec.defaultPromptPolicy") : t("nodesExec.defaultPrefix", { value: defaults.ask })}
+            ${isDefaults ? t("execApproval.resolved") : t("common.inherit")}
           </div>
         </div>
         <div class="list-meta">
           <label class="field">
-            <span>${t("nodesExec.mode")}</span>
+            <span>${t("common.mode")}</span>
             <select
               ?disabled=${state.disabled}
               @change=${(event: Event) => {
@@ -431,7 +431,7 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
               ${
                 !isDefaults
                   ? html`<option value="__default__" ?selected=${askValue === "__default__"}>
-                    ${t("nodesExec.useDefaultWithVal", { value: defaults.ask })}
+                    ${t("common.inherit")}
                   </option>`
                   : nothing
               }
@@ -451,18 +451,14 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
 
       <div class="list-item">
         <div class="list-main">
-          <div class="list-title">${t("nodesExec.askFallback.title")}</div>
+          <div class="list-title">${t("execApproval.ask")} Fallback</div>
           <div class="list-sub">
-            ${
-              isDefaults
-                ? t("nodesExec.askFallback.sub")
-                : t("nodesExec.askFallback.useDefault", { default: defaults.askFallback })
-            }
+            ${isDefaults ? t("nodes.defaultBindingSubtitle") : t("common.inherit")}
           </div>
         </div>
         <div class="list-meta">
           <label class="field">
-            <span>Fallback</span>
+            <span>${t("nodesExec.askFallback.label")}</span>
             <select
               ?disabled=${state.disabled}
               @change=${(event: Event) => {
@@ -478,7 +474,7 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
               ${
                 !isDefaults
                   ? html`<option value="__default__" ?selected=${askFallbackValue === "__default__"}>
-                    ${t("nodesExec.askFallback.useDefault", { default: defaults.askFallback })}
+                    ${t("common.inherit")}
                   </option>`
                   : nothing
               }
@@ -533,7 +529,7 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
                 ?disabled=${state.disabled}
                 @click=${() => state.onRemove([...basePath, "autoAllowSkills"])}
               >
-                ${t("nodesExec.useDefault")}
+                ${t("common.reset")}
               </button>`
               : nothing
           }
@@ -560,14 +556,14 @@ function renderExecApprovalsAllowlist(state: ExecApprovalsState) {
           state.onPatch(allowlistPath, next);
         }}
       >
-        ${t("nodesExec.addPattern")}
+        ${t("common.add")}
       </button>
     </div>
     <div class="list" style="margin-top: 12px;">
       ${
         entries.length === 0
           ? html`
-              <div class="muted">${t("nodesExec.noAllowlistEntries")}</div>
+              <div class="muted">${t("common.noItems")}</div>
             `
           : entries.map((entry, index) => renderAllowlistEntry(state, entry, index))
       }
@@ -586,14 +582,14 @@ function renderAllowlistEntry(
   return html`
     <div class="list-item">
       <div class="list-main">
-        <div class="list-title">${entry.pattern?.trim() ? entry.pattern : t("nodes.newPattern")}</div>
+        <div class="list-title">${entry.pattern?.trim() ? entry.pattern : t("common.new")}</div>
         <div class="list-sub">${t("nodesExec.lastUsed", { value: lastUsed })}</div>
         ${lastCommand ? html`<div class="list-sub mono">${lastCommand}</div>` : nothing}
         ${lastPath ? html`<div class="list-sub mono">${lastPath}</div>` : nothing}
       </div>
       <div class="list-meta">
         <label class="field">
-          <span>${t("nodesExec.pattern")}</span>
+          <span>${t("common.pattern")}</span>
           <input
             type="text"
             .value=${entry.pattern ?? ""}

@@ -51,20 +51,23 @@ export function renderInstances(props: InstancesProps) {
 }
 
 function renderEntry(entry: PresenceEntry) {
-  const lastInput = entry.lastInputSeconds != null ? `${entry.lastInputSeconds}s ago` : "n/a";
-  const mode = entry.mode ?? "unknown";
+  const lastInput =
+    entry.lastInputSeconds != null
+      ? t("common.ago", { time: entry.lastInputSeconds + "s" })
+      : t("common.na");
+  const mode = entry.mode ?? t("common.unknown");
   const roles = Array.isArray(entry.roles) ? entry.roles.filter(Boolean) : [];
   const scopes = Array.isArray(entry.scopes) ? entry.scopes.filter(Boolean) : [];
   const scopesLabel =
     scopes.length > 0
       ? scopes.length > 3
-        ? `${scopes.length} scopes`
+        ? t("instances.scopes", { count: scopes.length.toString() })
         : `scopes: ${scopes.join(", ")}`
       : null;
   return html`
     <div class="list-item">
       <div class="list-main">
-        <div class="list-title">${entry.host ?? "unknown host"}</div>
+        <div class="list-title">${entry.host ?? t("instances.unknownHost")}</div>
         <div class="list-sub">${formatPresenceSummary(entry)}</div>
         <div class="chip-row">
           <span class="chip">${mode}</span>
@@ -82,8 +85,8 @@ function renderEntry(entry: PresenceEntry) {
       </div>
       <div class="list-meta">
         <div>${formatPresenceAge(entry)}</div>
-        <div class="muted">Last input ${lastInput}</div>
-        <div class="muted">Reason ${entry.reason ?? ""}</div>
+        <div class="muted">${t("instances.lastInput", { time: lastInput })}</div>
+        <div class="muted">${t("instances.reason", { reason: entry.reason ?? "" })}</div>
       </div>
     </div>
   `;

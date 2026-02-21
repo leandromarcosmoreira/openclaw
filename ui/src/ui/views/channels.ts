@@ -212,11 +212,11 @@ function renderGenericChannelCard(
                 <span>${configured == null ? t("common.na") : configured ? t("common.yes") : t("common.no")}</span>
               </div>
               <div>
-                <span class="label">${t("whatsapp.running")}</span>
+                <span class="label">${t("common.running")}</span>
                 <span>${running == null ? t("common.na") : running ? t("common.yes") : t("common.no")}</span>
               </div>
               <div>
-                <span class="label">${t("whatsapp.connected")}</span>
+                <span class="label">${t("common.connected")}</span>
                 <span>${connected == null ? t("common.na") : connected ? t("common.yes") : t("common.no")}</span>
               </div>
             </div>
@@ -296,7 +296,7 @@ function renderGenericAccount(account: ChannelAccountSnapshot) {
       </div>
       <div class="status-list account-card-status">
         <div>
-          <span class="label">${t("whatsapp.running")}</span>
+          <span class="label">${t("common.running")}</span>
           <span>${runningStatus}</span>
         </div>
         <div>
@@ -304,7 +304,7 @@ function renderGenericAccount(account: ChannelAccountSnapshot) {
           <span>${account.configured ? t("common.yes") : t("common.no")}</span>
         </div>
         <div>
-          <span class="label">${t("whatsapp.connected")}</span>
+          <span class="label">${t("common.connected")}</span>
           <span>${connectedStatus}</span>
         </div>
         <div>

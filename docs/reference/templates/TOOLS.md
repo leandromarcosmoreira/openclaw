@@ -1,47 +1,47 @@
 ---
-title: "TOOLS.md Template"
-summary: "Workspace template for TOOLS.md"
+title: "Template TOOLS.md"
+summary: "Template de workspace para TOOLS.md"
 read_when:
-  - Bootstrapping a workspace manually
+  - Inicializando um workspace manualmente
 ---
 
-# TOOLS.md - Local Notes
+# TOOLS.md - Notas Locais
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+Habilidades definem _como_ as ferramentas funcionam. Este arquivo serve para as _suas_ especificidades — aquilo que é único na sua configuração.
 
-## What Goes Here
+## O Que Vem Aqui
 
-Things like:
+Coisas como:
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
+- Nomes e localizações de câmeras
+- Hosts e aliases SSH
+- Vozes preferidas para TTS
+- Nomes de alto-falantes/salas
+- Apelidos de dispositivos
+- Qualquer coisa específica do ambiente
 
-## Examples
+## Exemplos
 
 ```markdown
-### Cameras
+### Câmeras
 
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
+- sala-de-estar → Área principal, grande angular de 180°
+- porta-da-frente → Entrada, acionada por movimento
 
 ### SSH
 
-- home-server → 192.168.1.100, user: admin
+- servidor-caseiro → 192.168.1.100, usuário: admin
 
 ### TTS
 
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
+- Voz preferida: "Nova" (quente, levemente britânica)
+- Alto-falante padrão: HomePod da Cozinha
 ```
 
-## Why Separate?
+## Por Que Separar?
 
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
+Habilidades são compartilhadas. Sua configuração é sua. Mantê-las separadas significa que você pode atualizar habilidades sem perder suas notas e compartilhar habilidades sem vazar sua infraestrutura.
 
 ---
 
-Add whatever helps you do your job. This is your cheat sheet.
+Adicione o que quer que ajude você a fazer o seu trabalho. Esta é a sua "folha de dicas".

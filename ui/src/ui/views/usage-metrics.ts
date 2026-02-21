@@ -1,6 +1,6 @@
 import { html } from "lit";
 import { buildUsageAggregateTail } from "../../../../src/shared/usage-aggregates.js";
-import { t } from "../../i18n/index.ts";
+import { t } from "../../i18n/lib/translate.ts";
 import { UsageSessionEntry, UsageTotals, UsageAggregates } from "./usageTypes.ts";
 
 const CHARS_PER_TOKEN = 4;
@@ -75,7 +75,7 @@ function buildPeakErrorHours(sessions: UsageSessionEntry[], timeZone: "local" | 
     .map((entry) => ({
       label: formatHourLabel(entry.hour),
       value: `${(entry.rate * 100).toFixed(2)}%`,
-      sub: `${Math.round(entry.errors)} errors · ${Math.round(entry.msgs)} msgs`,
+      sub: `${t("usage.errorsCount", { count: String(Math.round(entry.errors)) })} · ${t("usage.msgsCount", { count: String(Math.round(entry.msgs)) })}`,
     }));
 }
 
@@ -174,12 +174,12 @@ function renderUsageMosaic(
       <div class="card usage-mosaic">
         <div class="usage-mosaic-header">
           <div>
-            <div class="usage-mosaic-title">Atividade por Tempo</div>
-            <div class="usage-mosaic-sub">Estimativas requerem marcações de tempo na sessão.</div>
+            <div class="usage-mosaic-title">${t("usage.activityByTime")}</div>
+            <div class="usage-mosaic-sub">${t("usage.estimatedFrom", { zone: timeZone === "utc" ? "UTC" : "Local" })}</div>
           </div>
-          <div class="usage-mosaic-total">${formatTokens(0)} tokens</div>
+          <div class="usage-mosaic-total">${t("usage.totalTokensValue", { total: formatTokens(0) })}</div>
         </div>
-        <div class="muted" style="padding: 12px; text-align: center;">No timeline data yet.</div>
+        <div class="muted" style="padding: 12px; text-align: center;">${t("usage.noTimelineDataYet")}</div>
       </div>
     `;
   }
@@ -224,7 +224,7 @@ function renderUsageMosaic(
             ${stats.hourTotals.map((value, hour) => {
               const intensity = Math.min(value / maxHour, 1);
               const bg = value > 0 ? `rgba(255, 77, 77, ${0.08 + intensity * 0.7})` : "transparent";
-              const title = `${hour}:00 · ${formatTokens(value)} tokens`;
+              const title = `${hour}:00 · ${formatTokens(value)} ${t("usage.tokens").toLowerCase()}`;
               const border = intensity > 0.7 ? "rgba(255, 77, 77, 0.6)" : "rgba(255, 77, 77, 0.2)";
               const selected = selectedHours.includes(hour);
               return html`
@@ -238,10 +238,10 @@ function renderUsageMosaic(
             })}
           </div>
           <div class="usage-hour-labels">
-            <span>${t("usage.midnight")}</span>
+            <span>${t("common.midnight")}</span>
             <span>4am</span>
             <span>8am</span>
-            <span>Noon</span>
+            <span>${t("common.noon")}</span>
             <span>4pm</span>
             <span>8pm</span>
           </div>

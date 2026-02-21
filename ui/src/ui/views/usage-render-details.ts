@@ -1,6 +1,6 @@
 import { html, svg, nothing } from "lit";
 import { formatDurationCompact } from "../../../../src/infra/format-time/format-duration.ts";
-import { t } from "../../i18n/index.ts";
+import { t } from "../../i18n/lib/translate.ts";
 import { parseToolSummary } from "../usage-helpers.ts";
 import { charsToTokens, formatCost, formatTokens } from "./usage-metrics.ts";
 import { renderInsightList } from "./usage-render-overview.ts";
@@ -68,16 +68,16 @@ function renderSessionSummary(
 
   const badges: string[] = [];
   if (session.channel) {
-    badges.push(`channel:${session.channel}`);
+    badges.push(`${t("usage.channel")}:${session.channel}`);
   }
   if (session.agentId) {
-    badges.push(`agent:${session.agentId}`);
+    badges.push(`${t("usage.agent")}:${session.agentId}`);
   }
   if (session.modelProvider || session.providerOverride) {
-    badges.push(`provider:${session.modelProvider ?? session.providerOverride}`);
+    badges.push(`${t("common.provider")}:${session.modelProvider ?? session.providerOverride}`);
   }
   if (session.model) {
-    badges.push(`model:${session.model}`);
+    badges.push(`${t("common.model")}:${session.model}`);
   }
 
   // Always use the full tool list for stable layout; update counts when filtering
@@ -113,7 +113,7 @@ function renderSessionSummary(
   }
   const modelItems =
     usage.modelUsage?.slice(0, 6).map((entry) => ({
-      label: entry.model ?? "unknown",
+      label: entry.model ?? t("common.unknown"),
       value: formatCost(entry.totals.totalCost),
       sub: formatTokens(entry.totals.totalTokens),
     })) ?? [];
@@ -143,8 +143,8 @@ function renderSessionSummary(
       </div>
     </div>
     <div class="usage-insights-grid" style="margin-top: 12px;">
-      ${renderInsightList(t("usage.topTools"), toolItems, "No tool calls")}
-      ${renderInsightList(t("usage.modelMix"), modelItems, "No model data")}
+      ${renderInsightList(t("usage.topTools"), toolItems, t("usage.noToolCalls"))}
+      ${renderInsightList(t("usage.modelMix"), modelItems, t("usage.noModelData"))}
     </div>
   `;
 }
@@ -536,7 +536,7 @@ function renderTimeSeriesCompact(
                 hour: "2-digit",
                 minute: "2-digit",
               }),
-              `${formatTokens(val)} tokens`,
+              `${formatTokens(val)} ${t("usage.tokens").toLowerCase()}`,
             ];
             if (breakdownByType) {
               tooltipLines.push(`${t("usage.out")} ${formatTokens(p.output)}`);
@@ -674,7 +674,7 @@ function renderTimeSeriesCompact(
         ${
           hasSelection
             ? html`
-              <span style="color: var(--accent);">▶ Turns ${rangeStartIdx + 1}–${rangeEndIdx} of ${points.length}</span> · 
+              <span style="color: var(--accent);">${t("usage.turnsRange", { start: String(rangeStartIdx + 1), end: String(rangeEndIdx), total: String(points.length) })}</span> · 
               ${new Date(rangeStartTs).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })}–${new Date(rangeEndTs).toLocaleTimeString(undefined, { hour: "2-digit", minute: "2-digit" })} · 
               ${formatTokens(filteredOutput + filteredInput + filteredCacheRead + filteredCacheWrite)} · 
               ${formatCost(filteredPoints.reduce((s, p) => s + (p.cost || 0), 0))}
@@ -694,16 +694,16 @@ function renderTimeSeriesCompact(
                   <div class="cost-segment cache-read" style="width: ${pct(filteredCacheRead, totalTypeTokens).toFixed(1)}%"></div>
                 </div>
                 <div class="cost-breakdown-legend">
-                  <div class="legend-item" title="Assistant output tokens">
+                  <div class="legend-item" title="${t("usage.assistantOutputTokens")}">
                     <span class="legend-dot output"></span>${t("usage.output")} ${formatTokens(filteredOutput)}
                   </div>
-                  <div class="legend-item" title="User + tool input tokens">
+                  <div class="legend-item" title="${t("usage.userInputTokens")}">
                     <span class="legend-dot input"></span>${t("usage.input")} ${formatTokens(filteredInput)}
                   </div>
-                  <div class="legend-item" title="Tokens written to cache">
+                  <div class="legend-item" title="${t("usage.tokensWrittenToCache")}">
                     <span class="legend-dot cache-write"></span>${t("usage.cacheWrite")} ${formatTokens(filteredCacheWrite)}
                   </div>
-                  <div class="legend-item" title="Tokens read from cache">
+                  <div class="legend-item" title="${t("usage.tokensReadFromCache")}">
                     <span class="legend-dot cache-read"></span>${t("usage.cacheRead")} ${formatTokens(filteredCacheRead)}
                   </div>
                 </div>
@@ -743,7 +743,7 @@ function renderContextPanel(
   if (usage && usage.totalTokens > 0) {
     const inputTokens = usage.input + usage.cacheRead;
     if (inputTokens > 0) {
-      contextPct = `~${Math.min((totalContextTokens / inputTokens) * 100, 100).toFixed(0)}% of ${t("usage.input").toLowerCase()}`;
+      contextPct = `~${Math.min((totalContextTokens / inputTokens) * 100, 100).toFixed(0)}% ${t("usage.of")} ${t("common.input").toLowerCase()}`;
     }
   }
 
@@ -780,10 +780,10 @@ function renderContextPanel(
         ${contextPct || t("usage.baseContext")}
       </p>
       <div class="context-stacked-bar">
-        <div class="context-segment system" style="width: ${pct(systemTokens, totalContextTokens).toFixed(1)}%" title="System: ~${formatTokens(systemTokens)}"></div>
-        <div class="context-segment skills" style="width: ${pct(skillsTokens, totalContextTokens).toFixed(1)}%" title="Skills: ~${formatTokens(skillsTokens)}"></div>
-        <div class="context-segment tools" style="width: ${pct(toolsTokens, totalContextTokens).toFixed(1)}%" title="Tools: ~${formatTokens(toolsTokens)}"></div>
-        <div class="context-segment files" style="width: ${pct(filesTokens, totalContextTokens).toFixed(1)}%" title="Files: ~${formatTokens(filesTokens)}"></div>
+        <div class="context-segment system" style="width: ${pct(systemTokens, totalContextTokens).toFixed(1)}%" title="${t("usage.sys")}: ~${formatTokens(systemTokens)}"></div>
+        <div class="context-segment skills" style="width: ${pct(skillsTokens, totalContextTokens).toFixed(1)}%" title="${t("agents.skills")}: ~${formatTokens(skillsTokens)}"></div>
+        <div class="context-segment tools" style="width: ${pct(toolsTokens, totalContextTokens).toFixed(1)}%" title="${t("agents.tools")}: ~${formatTokens(toolsTokens)}"></div>
+        <div class="context-segment files" style="width: ${pct(filesTokens, totalContextTokens).toFixed(1)}%" title="${t("agents.files")}: ~${formatTokens(filesTokens)}"></div>
       </div>
       <div class="context-legend">
         <span class="legend-item"><span class="legend-dot system"></span>${t("usage.sys")} ~${formatTokens(systemTokens)}</span>

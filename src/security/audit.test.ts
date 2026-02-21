@@ -874,7 +874,7 @@ describe("security audit", () => {
     );
   });
 
-  it("warns when multiple DM senders share the main session", async () => {
+  it("warns when multiple DM senders share the sessão principal", async () => {
     const cfg: OpenClawConfig = { session: { dmScope: "main" } };
     const plugins: ChannelPlugin[] = [
       {

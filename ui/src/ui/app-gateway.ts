@@ -156,7 +156,7 @@ export function connectGateway(host: GatewayHost) {
       host.connected = false;
       // Code 1012 = Service Restart (expected during config saves, don't show as error)
       if (code !== 1012) {
-        host.lastError = `disconnected (${code}): ${reason || "no reason"}`;
+        host.lastError = `desconectado (${code}): ${reason || "sem motivo"}`;
       }
     },
     onEvent: (evt) => {

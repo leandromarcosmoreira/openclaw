@@ -116,7 +116,7 @@ function renderDevices(props: NodesProps) {
         ${
           pending.length === 0 && paired.length === 0
             ? html`
-                <div class="muted">No paired devices.</div>
+                <div class="muted">Nenhum dispositivo pareado.</div>
               `
             : nothing
         }

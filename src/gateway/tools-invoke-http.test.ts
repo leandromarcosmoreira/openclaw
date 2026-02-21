@@ -423,7 +423,7 @@ describe("POST /tools/invoke", () => {
     expect(res.status).toBe(404);
   });
 
-  it("uses the configured main session key when sessionKey is missing or main", async () => {
+  it("uses the configured sessão principal key when sessionKey is missing or main", async () => {
     cfg = {
       ...cfg,
       agents: {

@@ -90,7 +90,7 @@ export function formatSkillsList(report: SkillStatusReport, opts: SkillsListOpti
   if (skills.length === 0) {
     const message = opts.eligible
       ? `No eligible skills found. Run \`${formatCliCommand("openclaw skills list")}\` to see all skills.`
-      : "No skills found.";
+      : "Nenhuma habilidade encontrada.";
     return appendClawHubHint(message, opts.json);
   }
 

@@ -65,7 +65,7 @@ const entries: SubCliEntry[] = [
   },
   {
     name: "logs",
-    description: "Tail gateway file logs via RPC",
+    description: "Acompanhar logs de arquivo do gateway via RPC",
     hasSubcommands: false,
     register: async (program) => {
       const mod = await import("../logs-cli.js");

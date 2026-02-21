@@ -320,7 +320,7 @@ export async function sandboxExplainCommand(
   if (payload.sandbox.mode === "non-main" && payload.sandbox.sessionIsSandboxed) {
     lines.push("");
     lines.push(
-      `${warn("Hint:")} sandbox mode is non-main; use main session key to run direct: ${value(
+      `${warn("Hint:")} sandbox mode is non-main; use sessão principal key to run direct: ${value(
         payload.mainSessionKey,
       )}`,
     );

@@ -69,7 +69,7 @@ export function renderSkills(props: SkillsProps) {
       ${
         filtered.length === 0
           ? html`
-              <div class="muted" style="margin-top: 16px">No skills found.</div>
+              <div class="muted" style="margin-top: 16px">Nenhuma habilidade encontrada.</div>
             `
           : html`
             <div class="agent-skills-groups" style="margin-top: 16px;">

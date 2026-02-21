@@ -446,7 +446,7 @@ export function registerSlackInteractionEvents(params: { ctx: SlackMonitorContex
       );
 
       // Send a system event to notify the agent about the button click
-      // Pass undefined (not "unknown") to allow proper main session fallback
+      // Pass undefined (not "unknown") to allow proper sessão principal fallback
       const sessionKey = ctx.resolveSlackSystemEventSessionKey({
         channelId: channelId,
         channelType: undefined,

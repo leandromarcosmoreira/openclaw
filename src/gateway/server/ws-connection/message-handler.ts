@@ -435,8 +435,11 @@ export function attachGatewayWsMessageHandler(params: {
               return;
             }
             markHandshakeFailure("device-required");
-            sendHandshakeErrorResponse(ErrorCodes.NOT_PAIRED, "device identity required");
-            close(1008, "device identity required");
+            sendHandshakeErrorResponse(
+              ErrorCodes.NOT_PAIRED,
+              "identidade do dispositivo necessária",
+            );
+            close(1008, "identidade do dispositivo necessária");
             return;
           }
         }

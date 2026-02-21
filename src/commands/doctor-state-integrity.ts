@@ -358,13 +358,13 @@ export async function noteStateIntegrity(
       const transcriptPath = resolveSessionFilePath(mainEntry.sessionId, mainEntry, { agentId });
       if (!existsFile(transcriptPath)) {
         warnings.push(
-          `- Main session transcript missing (${shortenHomePath(transcriptPath)}). History will appear to reset.`,
+          `- Sessão principal transcript missing (${shortenHomePath(transcriptPath)}). History will appear to reset.`,
         );
       } else {
         const lineCount = countJsonlLines(transcriptPath);
         if (lineCount <= 1) {
           warnings.push(
-            `- Main session transcript has only ${lineCount} line. Session history may not be appending.`,
+            `- Sessão principal transcript has only ${lineCount} line. Session history may not be appending.`,
           );
         }
       }

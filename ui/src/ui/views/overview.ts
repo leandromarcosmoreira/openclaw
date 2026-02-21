@@ -96,7 +96,10 @@ export function renderOverview(props: OverviewProps) {
       return null;
     }
     const lower = props.lastError.toLowerCase();
-    if (!lower.includes("secure context") && !lower.includes("device identity required")) {
+    if (
+      !lower.includes("secure context") &&
+      !lower.includes("identidade do dispositivo necessária")
+    ) {
       return null;
     }
     return html`

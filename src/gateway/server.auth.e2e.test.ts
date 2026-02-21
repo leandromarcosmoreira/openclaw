@@ -642,7 +642,7 @@ describe("gateway server auth/connect", () => {
       const ws = await openTailscaleWs(port);
       const res = await connectReq(ws, { token: "dummy", device: null });
       expect(res.ok).toBe(false);
-      expect(res.error?.message ?? "").toContain("device identity required");
+      expect(res.error?.message ?? "").toContain("identidade do dispositivo necessária");
       ws.close();
     });
 

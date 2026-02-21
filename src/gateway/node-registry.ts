@@ -90,7 +90,7 @@ export class NodeRegistry {
         continue;
       }
       clearTimeout(pending.timer);
-      pending.reject(new Error(`node disconnected (${pending.command})`));
+      pending.reject(new Error(`nó desconectado (${pending.command})`));
       this.pendingInvokes.delete(id);
     }
     return nodeId;

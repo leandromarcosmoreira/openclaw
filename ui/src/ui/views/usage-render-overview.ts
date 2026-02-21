@@ -141,8 +141,8 @@ function renderDailyChartCompact(
   if (!daily.length) {
     return html`
       <div class="daily-chart-compact">
-        <div class="sessions-panel-title">Daily Usage</div>
-        <div class="muted" style="padding: 20px; text-align: center">No data</div>
+        <div class="sessions-panel-title">Uso Diário</div>
+        <div class="muted" style="padding: 20px; text-align: center">Sem dados</div>
       </div>
     `;
   }
@@ -758,7 +758,7 @@ function renderSessionsCard(
 	              `
           : sessions.length === 0
             ? html`
-                <div class="muted" style="padding: 20px; text-align: center">No sessions in range</div>
+                <div class="muted" style="padding: 20px; text-align: center">Sem sessões no período</div>
               `
             : html`
 	                <div class="session-bars">

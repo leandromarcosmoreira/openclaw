@@ -198,7 +198,7 @@ function emitGatewayError(
 export function registerLogsCli(program: Command) {
   const logs = program
     .command("logs")
-    .description("Tail gateway file logs via RPC")
+    .description("Acompanhar logs de arquivo do gateway via RPC")
     .option("--limit <n>", "Max lines to return", "200")
     .option("--max-bytes <n>", "Max bytes to read", "250000")
     .option("--follow", "Follow log output", false)

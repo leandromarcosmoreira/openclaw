@@ -14,7 +14,7 @@ export function renderSignalCard(params: {
   return html`
     <div class="card">
       <div class="card-title">Signal</div>
-      <div class="card-sub">signal-cli status and channel configuration.</div>
+      <div class="card-sub">Status do signal-cli e configuração do canal.</div>
       ${accountCountLabel}
 
       <div class="status-list" style="margin-top: 16px;">

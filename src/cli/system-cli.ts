@@ -60,7 +60,7 @@ export function registerSystemCli(program: Command) {
   addGatewayClientOptions(
     heartbeat
       .command("last")
-      .description("Show the last heartbeat event")
+      .description("Mostrar o último evento de heartbeat")
       .option("--json", "Output JSON", false),
   ).action(async (opts: GatewayRpcOpts & { json?: boolean }) => {
     try {

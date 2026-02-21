@@ -530,7 +530,7 @@ async function executeJobCore(
     message: job.payload.message,
   });
 
-  // Post a short summary back to the main session — but only when the
+  // Post a short summary back to the sessão principal — but only when the
   // isolated run did NOT already deliver its output to the target channel.
   // When `res.delivered` is true the announce flow (or direct outbound
   // delivery) already sent the result, so posting the summary to main

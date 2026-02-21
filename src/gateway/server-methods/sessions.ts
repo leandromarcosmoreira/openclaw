@@ -362,7 +362,7 @@ export const sessionsHandlers: GatewayRequestHandlers = {
       respond(
         false,
         undefined,
-        errorShape(ErrorCodes.INVALID_REQUEST, `Cannot delete the main session (${mainKey}).`),
+        errorShape(ErrorCodes.INVALID_REQUEST, `Cannot delete the sessão principal (${mainKey}).`),
       );
       return;
     }

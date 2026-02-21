@@ -173,8 +173,8 @@ function renderUsageMosaic(
       <div class="card usage-mosaic">
         <div class="usage-mosaic-header">
           <div>
-            <div class="usage-mosaic-title">Activity by Time</div>
-            <div class="usage-mosaic-sub">Estimates require session timestamps.</div>
+            <div class="usage-mosaic-title">Atividade por Tempo</div>
+            <div class="usage-mosaic-sub">Estimativas requerem marcações de tempo na sessão.</div>
           </div>
           <div class="usage-mosaic-total">${formatTokens(0)} tokens</div>
         </div>

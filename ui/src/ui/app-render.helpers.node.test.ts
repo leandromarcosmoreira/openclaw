@@ -14,13 +14,13 @@ function row(overrides: Partial<SessionRow> & { key: string }): SessionRow {
 
 describe("parseSessionKey", () => {
   it("identifies main session (bare 'main')", () => {
-    expect(parseSessionKey("main")).toEqual({ prefix: "", fallbackName: "Main Session" });
+    expect(parseSessionKey("main")).toEqual({ prefix: "", fallbackName: "Sessão Principal" });
   });
 
   it("identifies main session (agent:main:main)", () => {
     expect(parseSessionKey("agent:main:main")).toEqual({
       prefix: "",
-      fallbackName: "Main Session",
+      fallbackName: "Sessão Principal",
     });
   });
 
@@ -99,12 +99,12 @@ describe("parseSessionKey", () => {
 describe("resolveSessionDisplayName", () => {
   // ── Key-only fallbacks (no row) ──────────────────
 
-  it("returns 'Main Session' for agent:main:main key", () => {
-    expect(resolveSessionDisplayName("agent:main:main")).toBe("Main Session");
+  it("returns 'Sessão Principal' for agent:main:main key", () => {
+    expect(resolveSessionDisplayName("agent:main:main")).toBe("Sessão Principal");
   });
 
-  it("returns 'Main Session' for bare 'main' key", () => {
-    expect(resolveSessionDisplayName("main")).toBe("Main Session");
+  it("returns 'Sessão Principal' for bare 'main' key", () => {
+    expect(resolveSessionDisplayName("main")).toBe("Sessão Principal");
   });
 
   it("returns 'Subagent:' for subagent key without row", () => {
@@ -133,7 +133,7 @@ describe("resolveSessionDisplayName", () => {
 
   it("returns parsed fallback when row has no label or displayName", () => {
     expect(resolveSessionDisplayName("agent:main:main", row({ key: "agent:main:main" }))).toBe(
-      "Main Session",
+      "Sessão Principal",
     );
   });
 

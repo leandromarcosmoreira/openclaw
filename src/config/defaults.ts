@@ -145,7 +145,7 @@ export function applySessionDefaults(
 
   if (trimmed && trimmed !== "main" && !warnState.warned) {
     warnState.warned = true;
-    warn('session.mainKey is ignored; main session is always "main".');
+    warn('session.mainKey is ignored; sessão principal is always "main".');
   }
 
   return next;

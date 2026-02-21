@@ -283,7 +283,7 @@ function capitalize(s: string): string {
 export function parseSessionKey(key: string): SessionKeyInfo {
   // ── Main session ─────────────────────────────────
   if (key === "main" || key === "agent:main:main") {
-    return { prefix: "", fallbackName: "Main Session" };
+    return { prefix: "", fallbackName: "Sessão Principal" };
   }
 
   // ── Subagent ─────────────────────────────────────

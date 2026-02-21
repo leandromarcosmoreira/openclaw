@@ -115,9 +115,9 @@ export async function collectChannelSecurityFindings(params: {
       findings.push({
         checkId: `channels.${input.provider}.dm.scope_main_multiuser`,
         severity: "warn",
-        title: `${input.label} DMs share the main session`,
+        title: `${input.label} DMs share the sessão principal`,
         detail:
-          "Multiple DM senders currently share the main session, which can leak context across users.",
+          "Multiple DM senders currently share the sessão principal, which can leak context across users.",
         remediation:
           "Run: " +
           formatCliCommand('openclaw config set session.dmScope "per-channel-peer"') +

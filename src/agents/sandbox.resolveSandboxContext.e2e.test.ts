@@ -3,7 +3,7 @@ import type { OpenClawConfig } from "../config/config.js";
 import { ensureSandboxWorkspaceForSession, resolveSandboxContext } from "./sandbox.js";
 
 describe("resolveSandboxContext", () => {
-  it("does not sandbox the agent main session in non-main mode", async () => {
+  it("does not sandbox the agent sessão principal in non-main mode", async () => {
     const cfg: OpenClawConfig = {
       agents: {
         defaults: {
@@ -22,7 +22,7 @@ describe("resolveSandboxContext", () => {
     expect(result).toBeNull();
   }, 15_000);
 
-  it("does not create a sandbox workspace for the agent main session in non-main mode", async () => {
+  it("does not create a sandbox workspace for the agent sessão principal in non-main mode", async () => {
     const cfg: OpenClawConfig = {
       agents: {
         defaults: {
@@ -41,7 +41,7 @@ describe("resolveSandboxContext", () => {
     expect(result).toBeNull();
   }, 15_000);
 
-  it("treats main session aliases as main in non-main mode", async () => {
+  it("treats sessão principal aliases as main in non-main mode", async () => {
     const cfg: OpenClawConfig = {
       session: { mainKey: "work" },
       agents: {

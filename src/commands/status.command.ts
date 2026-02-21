@@ -378,7 +378,7 @@ export async function statusCommand(
     { Item: "Probes", Value: probesValue },
     { Item: "Events", Value: eventsValue },
     { Item: "Heartbeat", Value: heartbeatValue },
-    ...(lastHeartbeatValue ? [{ Item: "Last heartbeat", Value: lastHeartbeatValue }] : []),
+    ...(lastHeartbeatValue ? [{ Item: "Último heartbeat", Value: lastHeartbeatValue }] : []),
     {
       Item: "Sessions",
       Value: `${summary.sessions.count} active · default ${defaults.model ?? "unknown"}${defaultCtx} · ${storeLabel}`,

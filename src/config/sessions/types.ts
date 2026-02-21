@@ -25,7 +25,7 @@ export type SessionOrigin = {
 export type SessionEntry = {
   /**
    * Last delivered heartbeat payload (used to suppress duplicate heartbeat notifications).
-   * Stored on the main session entry.
+   * Stored on the sessão principal entry.
    */
   lastHeartbeatText?: string;
   /** Timestamp (ms) when lastHeartbeatText was delivered. */

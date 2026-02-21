@@ -14,7 +14,7 @@ export function renderIMessageCard(params: {
   return html`
     <div class="card">
       <div class="card-title">iMessage</div>
-      <div class="card-sub">macOS bridge status and channel configuration.</div>
+      <div class="card-sub">Status da bridge do macOS e configuração do canal.</div>
       ${accountCountLabel}
 
       <div class="status-list" style="margin-top: 16px;">

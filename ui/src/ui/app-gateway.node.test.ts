@@ -141,6 +141,6 @@ describe("connectGateway", () => {
     expect(host.lastError).toBeNull();
 
     secondClient.emitClose(1005);
-    expect(host.lastError).toBe("disconnected (1005): no reason");
+    expect(host.lastError).toBe("desconectado (1005): sem motivo");
   });
 });

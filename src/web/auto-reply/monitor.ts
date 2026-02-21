@@ -389,7 +389,7 @@ export async function monitorWebChannel(
       "web reconnect: connection closed",
     );
 
-    enqueueSystemEvent(`WhatsApp gateway disconnected (status ${statusCode ?? "unknown"})`, {
+    enqueueSystemEvent(`Gateway do WhatsApp desconectado (status ${statusCode ?? "unknown"})`, {
       sessionKey: connectRoute.sessionKey,
     });
 

@@ -119,7 +119,7 @@ describe("runBootOnce", () => {
     await fs.rm(workspaceDir, { recursive: true, force: true });
   });
 
-  it("uses a fresh boot session ID even when main session mapping already exists", async () => {
+  it("uses a fresh boot session ID even when sessão principal mapping already exists", async () => {
     const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), "openclaw-boot-"));
     const content = "Say hello when you wake up.";
     await fs.writeFile(path.join(workspaceDir, "BOOT.md"), content, "utf-8");
@@ -150,7 +150,7 @@ describe("runBootOnce", () => {
     await fs.rm(workspaceDir, { recursive: true, force: true });
   });
 
-  it("restores the original main session mapping after the boot run", async () => {
+  it("restores the original sessão principal mapping after the boot run", async () => {
     const workspaceDir = await fs.mkdtemp(path.join(os.tmpdir(), "openclaw-boot-"));
     const content = "Check if the system is healthy.";
     await fs.writeFile(path.join(workspaceDir, "BOOT.md"), content, "utf-8");

@@ -62,7 +62,7 @@ export function renderDebug(props: DebugProps) {
             <pre class="code-block">${JSON.stringify(props.health ?? {}, null, 2)}</pre>
           </div>
           <div>
-            <div class="muted">Last heartbeat</div>
+            <div class="muted">Último heartbeat</div>
             <pre class="code-block">${JSON.stringify(props.heartbeat ?? {}, null, 2)}</pre>
           </div>
         </div>
@@ -110,7 +110,7 @@ export function renderDebug(props: DebugProps) {
 
     <section class="card" style="margin-top: 18px;">
       <div class="card-title">Models</div>
-      <div class="card-sub">Catalog from models.list.</div>
+      <div class="card-sub">Catálogo de models.list.</div>
       <pre class="code-block" style="margin-top: 12px;">${JSON.stringify(
         props.models ?? [],
         null,

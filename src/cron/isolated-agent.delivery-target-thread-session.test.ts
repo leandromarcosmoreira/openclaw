@@ -59,7 +59,7 @@ describe("resolveDeliveryTarget thread session lookup", () => {
     expect(result.channel).toBe("telegram");
   });
 
-  it("falls back to main session when sessionKey entry does not exist", async () => {
+  it("falls back to sessão principal when sessionKey entry does not exist", async () => {
     mockStore["/mock/store.json"] = {
       "agent:main:main": {
         sessionId: "s1",
@@ -79,7 +79,7 @@ describe("resolveDeliveryTarget thread session lookup", () => {
     expect(result.channel).toBe("telegram");
   });
 
-  it("falls back to main session when no sessionKey is provided", async () => {
+  it("falls back to sessão principal when no sessionKey is provided", async () => {
     mockStore["/mock/store.json"] = {
       "agent:main:main": {
         sessionId: "s1",

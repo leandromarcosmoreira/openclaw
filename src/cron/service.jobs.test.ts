@@ -5,7 +5,7 @@ import { DEFAULT_TOP_OF_HOUR_STAGGER_MS } from "./stagger.js";
 import type { CronJob, CronJobPatch } from "./types.js";
 
 describe("applyJobPatch", () => {
-  it("clears delivery when switching to main session", () => {
+  it("clears delivery when switching to sessão principal", () => {
     const now = Date.now();
     const job: CronJob = {
       id: "job-1",
@@ -32,7 +32,7 @@ describe("applyJobPatch", () => {
     expect(job.delivery).toBeUndefined();
   });
 
-  it("keeps webhook delivery when switching to main session", () => {
+  it("keeps webhook delivery when switching to sessão principal", () => {
     const now = Date.now();
     const job: CronJob = {
       id: "job-webhook",

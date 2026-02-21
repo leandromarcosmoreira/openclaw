@@ -58,7 +58,7 @@ export function renderLogs(props: LogsProps) {
       <div class="row" style="justify-content: space-between;">
         <div>
           <div class="card-title">Logs</div>
-          <div class="card-sub">Gateway file logs (JSONL).</div>
+          <div class="card-sub">Logs de arquivo do gateway (JSONL).</div>
         </div>
         <div class="row" style="gap: 8px;">
           <button class="btn" ?disabled=${props.loading} @click=${props.onRefresh}>

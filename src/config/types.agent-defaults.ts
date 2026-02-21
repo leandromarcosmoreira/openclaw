@@ -252,7 +252,7 @@ export type AgentDefaultsConfig = {
     /** Default thinking level for spawned sub-agents (e.g. "off", "low", "medium", "high"). */
     thinking?: string;
   };
-  /** Optional sandbox settings for non-main sessions. */
+  /** Optional sandbox settings for non-sessão principals. */
   sandbox?: {
     /** Enable sandboxing for sessions. */
     mode?: "off" | "non-main" | "all";

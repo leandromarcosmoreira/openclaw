@@ -97,7 +97,7 @@ function snapshotMainSessionMapping(params: {
       entry: structuredClone(entry),
     };
   } catch (err) {
-    log.debug("boot: could not snapshot main session mapping", {
+    log.debug("boot: could not snapshot sessão principal mapping", {
       sessionKey: params.sessionKey,
       error: String(err),
     });
@@ -184,7 +184,7 @@ export async function runBootOnce(params: {
 
   const mappingRestoreFailure = await restoreMainSessionMapping(mappingSnapshot);
   if (mappingRestoreFailure) {
-    log.error(`boot: failed to restore main session mapping: ${mappingRestoreFailure}`);
+    log.error(`boot: failed to restore sessão principal mapping: ${mappingRestoreFailure}`);
   }
 
   if (!agentFailure && !mappingRestoreFailure) {

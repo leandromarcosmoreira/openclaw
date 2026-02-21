@@ -14,7 +14,7 @@ export function renderDiscordCard(params: {
   return html`
     <div class="card">
       <div class="card-title">Discord</div>
-      <div class="card-sub">Bot status and channel configuration.</div>
+      <div class="card-sub">Status do bot e configuração do canal.</div>
       ${accountCountLabel}
 
       <div class="status-list" style="margin-top: 16px;">

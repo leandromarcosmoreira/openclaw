@@ -71,17 +71,17 @@ export class AcpGatewayAgent implements Agent {
   }
 
   start(): void {
-    this.log("ready");
+    this.log("pronto");
   }
 
   handleGatewayReconnect(): void {
-    this.log("gateway reconnected");
+    this.log("gateway reconectado");
   }
 
   handleGatewayDisconnect(reason: string): void {
-    this.log(`gateway disconnected: ${reason}`);
+    this.log(`gateway desconectado: ${reason}`);
     for (const pending of this.pendingPrompts.values()) {
-      pending.reject(new Error(`Gateway disconnected: ${reason}`));
+      pending.reject(new Error(`Gateway desconectado: ${reason}`));
       this.sessionStore.clearActiveRun(pending.sessionId);
     }
     this.pendingPrompts.clear();
@@ -122,7 +122,7 @@ export class AcpGatewayAgent implements Agent {
 
   async newSession(params: NewSessionRequest): Promise<NewSessionResponse> {
     if (params.mcpServers.length > 0) {
-      this.log(`ignoring ${params.mcpServers.length} MCP servers`);
+      this.log(`ignorando ${params.mcpServers.length} servidores MCP`);
     }
 
     const sessionId = randomUUID();
@@ -145,14 +145,14 @@ export class AcpGatewayAgent implements Agent {
       sessionKey,
       cwd: params.cwd,
     });
-    this.log(`newSession: ${session.sessionId} -> ${session.sessionKey}`);
+    this.log(`novaSessão: ${session.sessionId} -> ${session.sessionKey}`);
     await this.sendAvailableCommands(session.sessionId);
     return { sessionId: session.sessionId };
   }
 
   async loadSession(params: LoadSessionRequest): Promise<LoadSessionResponse> {
     if (params.mcpServers.length > 0) {
-      this.log(`ignoring ${params.mcpServers.length} MCP servers`);
+      this.log(`ignorando ${params.mcpServers.length} servidores MCP`);
     }
 
     const meta = parseSessionMeta(params._meta);
@@ -174,7 +174,7 @@ export class AcpGatewayAgent implements Agent {
       sessionKey,
       cwd: params.cwd,
     });
-    this.log(`loadSession: ${session.sessionId} -> ${session.sessionKey}`);
+    this.log(`carregarSessão: ${session.sessionId} -> ${session.sessionKey}`);
     await this.sendAvailableCommands(session.sessionId);
     return {};
   }
@@ -206,7 +206,7 @@ export class AcpGatewayAgent implements Agent {
   async setSessionMode(params: SetSessionModeRequest): Promise<SetSessionModeResponse> {
     const session = this.sessionStore.getSession(params.sessionId);
     if (!session) {
-      throw new Error(`Session ${params.sessionId} not found`);
+      throw new Error(`Sessão ${params.sessionId} não encontrada`);
     }
     if (!params.modeId) {
       return {};
@@ -218,7 +218,7 @@ export class AcpGatewayAgent implements Agent {
       });
       this.log(`setSessionMode: ${session.sessionId} -> ${params.modeId}`);
     } catch (err) {
-      this.log(`setSessionMode error: ${String(err)}`);
+      this.log(`erro em setSessionMode: ${String(err)}`);
     }
     return {};
   }
@@ -284,7 +284,7 @@ export class AcpGatewayAgent implements Agent {
     try {
       await this.gateway.request("chat.abort", { sessionKey: session.sessionKey });
     } catch (err) {
-      this.log(`cancel error: ${String(err)}`);
+      this.log(`erro ao cancelar: ${String(err)}`);
     }
 
     const pending = this.pendingPrompts.get(params.sessionId);

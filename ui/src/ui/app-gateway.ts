@@ -123,9 +123,14 @@ export function connectGateway(host: GatewayHost) {
   host.execApprovalError = null;
 
   const previousClient = host.client;
+  const bootstrapToken = (host as unknown as { token: string | null }).token;
+  const effectiveToken = host.settings.token.trim()
+    ? host.settings.token
+    : (bootstrapToken?.trim() ?? undefined);
+
   const client = new GatewayBrowserClient({
     url: host.settings.gatewayUrl,
-    token: host.settings.token.trim() ? host.settings.token : undefined,
+    token: effectiveToken,
     password: host.password.trim() ? host.password : undefined,
     clientName: "openclaw-control-ui",
     mode: "webchat",

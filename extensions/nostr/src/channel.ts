@@ -89,7 +89,7 @@ export const nostrPlugin: ChannelPlugin<ResolvedNostrAccount> = {
       // Get the default account's bus and send approval message
       const bus = activeBuses.get(DEFAULT_ACCOUNT_ID);
       if (bus) {
-        await bus.sendDm(id, "Your pairing request has been approved!");
+        await bus.sendDm(id, "Seu pedido de pareamento foi aprovado!");
       }
     },
   },
@@ -140,7 +140,7 @@ export const nostrPlugin: ChannelPlugin<ResolvedNostrAccount> = {
       const aid = accountId ?? DEFAULT_ACCOUNT_ID;
       const bus = activeBuses.get(aid);
       if (!bus) {
-        throw new Error(`Nostr bus not running for account ${aid}`);
+        throw new Error(`Barramento Nostr não está em execução para a conta ${aid}`);
       }
       const tableMode = core.channel.text.resolveMarkdownTableMode({
         cfg: core.config.loadConfig(),
@@ -197,7 +197,7 @@ export const nostrPlugin: ChannelPlugin<ResolvedNostrAccount> = {
       );
 
       if (!account.configured) {
-        throw new Error("Nostr private key not configured");
+        throw new Error("Chave privada do Nostr não configurada");
       }
 
       const runtime = getNostrRuntime();
@@ -323,7 +323,7 @@ export async function publishNostrProfile(
 ): Promise<ProfilePublishResult> {
   const bus = activeBuses.get(accountId);
   if (!bus) {
-    throw new Error(`Nostr bus not running for account ${accountId}`);
+    throw new Error(`Barramento Nostr não está em execução para a conta ${accountId}`);
   }
   return bus.publishProfile(profile);
 }

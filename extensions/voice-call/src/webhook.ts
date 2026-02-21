@@ -64,7 +64,9 @@ export class VoiceCallWebhookServer {
     const apiKey = this.config.streaming?.openaiApiKey || process.env.OPENAI_API_KEY;
 
     if (!apiKey) {
-      console.warn("[voice-call] Streaming enabled but no OpenAI API key found");
+      console.warn(
+        "[voice-call] Streaming habilitado, mas nenhuma chave de API da OpenAI foi encontrada",
+      );
       return;
     }
 
@@ -85,14 +87,14 @@ export class VoiceCallWebhookServer {
         if (this.provider.name === "twilio") {
           const twilio = this.provider as TwilioProvider;
           if (!twilio.isValidStreamToken(callId, token)) {
-            console.warn(`[voice-call] Rejecting media stream: invalid token for ${callId}`);
+            console.warn(`[voice-call] Rejeitando fluxo de mídia: token inválido para ${callId}`);
             return false;
           }
         }
         return true;
       },
       onTranscript: (providerCallId, transcript) => {
-        console.log(`[voice-call] Transcript for ${providerCallId}: ${transcript}`);
+        console.log(`[voice-call] Transcrição para ${providerCallId}: ${transcript}`);
 
         // Clear TTS queue on barge-in (user started speaking, interrupt current playback)
         if (this.provider.name === "twilio") {
@@ -102,7 +104,9 @@ export class VoiceCallWebhookServer {
         // Look up our internal call ID from the provider call ID
         const call = this.manager.getCallByProviderCallId(providerCallId);
         if (!call) {
-          console.warn(`[voice-call] No active call found for provider ID: ${providerCallId}`);
+          console.warn(
+            `[voice-call] Nenhuma chamada ativa encontrada para o ID do provedor: ${providerCallId}`,
+          );
           return;
         }
 
@@ -123,7 +127,7 @@ export class VoiceCallWebhookServer {
         const shouldRespond = call.direction === "inbound" || callMode === "conversation";
         if (shouldRespond) {
           this.handleInboundResponse(call.callId, transcript).catch((err) => {
-            console.warn(`[voice-call] Failed to auto-respond:`, err);
+            console.warn(`[voice-call] Falha ao responder automaticamente:`, err);
           });
         }
       },
@@ -133,10 +137,10 @@ export class VoiceCallWebhookServer {
         }
       },
       onPartialTranscript: (callId, partial) => {
-        console.log(`[voice-call] Partial for ${callId}: ${partial}`);
+        console.log(`[voice-call] Parcial para ${callId}: ${partial}`);
       },
       onConnect: (callId, streamSid) => {
-        console.log(`[voice-call] Media stream connected: ${callId} -> ${streamSid}`);
+        console.log(`[voice-call] Fluxo de mídia conectado: ${callId} -> ${streamSid}`);
         // Register stream with provider for TTS routing
         if (this.provider.name === "twilio") {
           (this.provider as TwilioProvider).registerCallStream(callId, streamSid);
@@ -146,21 +150,24 @@ export class VoiceCallWebhookServer {
         // Use setTimeout to allow stream setup to complete
         setTimeout(() => {
           this.manager.speakInitialMessage(callId).catch((err) => {
-            console.warn(`[voice-call] Failed to speak initial message:`, err);
+            console.warn(`[voice-call] Falha ao falar mensagem inicial:`, err);
           });
         }, 500);
       },
       onDisconnect: (callId) => {
-        console.log(`[voice-call] Media stream disconnected: ${callId}`);
+        console.log(`[voice-call] Fluxo de mídia desconectado: ${callId}`);
         // Auto-end call when media stream disconnects to prevent stuck calls.
         // Without this, calls can remain active indefinitely after the stream closes.
         const disconnectedCall = this.manager.getCallByProviderCallId(callId);
         if (disconnectedCall) {
           console.log(
-            `[voice-call] Auto-ending call ${disconnectedCall.callId} on stream disconnect`,
+            `[voice-call] Finalizando automaticamente a chamada ${disconnectedCall.callId} após desconexão do fluxo`,
           );
           void this.manager.endCall(disconnectedCall.callId).catch((err) => {
-            console.warn(`[voice-call] Failed to auto-end call ${disconnectedCall.callId}:`, err);
+            console.warn(
+              `[voice-call] Falha ao finalizar automaticamente a chamada ${disconnectedCall.callId}:`,
+              err,
+            );
           });
         }
         if (this.provider.name === "twilio") {
@@ -170,7 +177,7 @@ export class VoiceCallWebhookServer {
     };
 
     this.mediaStreamHandler = new MediaStreamHandler(streamConfig);
-    console.log("[voice-call] Media streaming initialized");
+    console.log("[voice-call] Streaming de mídia inicializado");
   }
 
   /**
@@ -183,9 +190,9 @@ export class VoiceCallWebhookServer {
     return new Promise((resolve, reject) => {
       this.server = http.createServer((req, res) => {
         this.handleRequest(req, res, webhookPath).catch((err) => {
-          console.error("[voice-call] Webhook error:", err);
+          console.error("[voice-call] Erro no webhook:", err);
           res.statusCode = 500;
-          res.end("Internal Server Error");
+          res.end("Erro Interno do Servidor");
         });
       });
 
@@ -195,7 +202,7 @@ export class VoiceCallWebhookServer {
           const url = new URL(request.url || "/", `http://${request.headers.host}`);
 
           if (url.pathname === streamPath) {
-            console.log("[voice-call] WebSocket upgrade for media stream");
+            console.log("[voice-call] Upgrade de WebSocket para fluxo de mídia");
             this.mediaStreamHandler?.handleUpgrade(request, socket, head);
           } else {
             socket.destroy();
@@ -207,9 +214,11 @@ export class VoiceCallWebhookServer {
 
       this.server.listen(port, bind, () => {
         const url = `http://${bind}:${port}${webhookPath}`;
-        console.log(`[voice-call] Webhook server listening on ${url}`);
+        console.log(`[voice-call] Servidor de webhook ouvindo em ${url}`);
         if (this.mediaStreamHandler) {
-          console.log(`[voice-call] Media stream WebSocket on ws://${bind}:${port}${streamPath}`);
+          console.log(
+            `[voice-call] WebSocket de fluxo de mídia em ws://${bind}:${port}${streamPath}`,
+          );
         }
         resolve(url);
 
@@ -239,10 +248,13 @@ export class VoiceCallWebhookServer {
         const age = now - call.startedAt;
         if (age > maxAgeMs) {
           console.log(
-            `[voice-call] Reaping stale call ${call.callId} (age: ${Math.round(age / 1000)}s, state: ${call.state})`,
+            `[voice-call] Removendo chamada obsoleta ${call.callId} (idade: ${Math.round(age / 1000)}s, estado: ${call.state})`,
           );
           void this.manager.endCall(call.callId).catch((err) => {
-            console.warn(`[voice-call] Reaper failed to end call ${call.callId}:`, err);
+            console.warn(
+              `[voice-call] Falha do coletor ao finalizar a chamada ${call.callId}:`,
+              err,
+            );
           });
         }
       }
@@ -282,14 +294,14 @@ export class VoiceCallWebhookServer {
     // Check path
     if (!url.pathname.startsWith(webhookPath)) {
       res.statusCode = 404;
-      res.end("Not Found");
+      res.end("Não Encontrado");
       return;
     }
 
     // Only accept POST
     if (req.method !== "POST") {
       res.statusCode = 405;
-      res.end("Method Not Allowed");
+      res.end("Método Não Permitido");
       return;
     }
 
@@ -300,7 +312,7 @@ export class VoiceCallWebhookServer {
     } catch (err) {
       if (isRequestBodyLimitError(err, "PAYLOAD_TOO_LARGE")) {
         res.statusCode = 413;
-        res.end("Payload Too Large");
+        res.end("Payload Muito Grande");
         return;
       }
       if (isRequestBodyLimitError(err, "REQUEST_BODY_TIMEOUT")) {
@@ -324,9 +336,9 @@ export class VoiceCallWebhookServer {
     // Verify signature
     const verification = this.provider.verifyWebhook(ctx);
     if (!verification.ok) {
-      console.warn(`[voice-call] Webhook verification failed: ${verification.reason}`);
+      console.warn(`[voice-call] Falha na verificação do webhook: ${verification.reason}`);
       res.statusCode = 401;
-      res.end("Unauthorized");
+      res.end("Não Autorizado");
       return;
     }
 
@@ -338,7 +350,7 @@ export class VoiceCallWebhookServer {
       try {
         this.manager.processEvent(event);
       } catch (err) {
-        console.error(`[voice-call] Error processing event ${event.type}:`, err);
+        console.error(`[voice-call] Erro ao processar evento ${event.type}:`, err);
       }
     }
 
@@ -370,17 +382,19 @@ export class VoiceCallWebhookServer {
    * Supports tool calling for richer voice interactions.
    */
   private async handleInboundResponse(callId: string, userMessage: string): Promise<void> {
-    console.log(`[voice-call] Auto-responding to inbound call ${callId}: "${userMessage}"`);
+    console.log(
+      `[voice-call] Respondendo automaticamente à chamada recebida ${callId}: "${userMessage}"`,
+    );
 
     // Get call context for conversation history
     const call = this.manager.getCall(callId);
     if (!call) {
-      console.warn(`[voice-call] Call ${callId} not found for auto-response`);
+      console.warn(`[voice-call] Chamada ${callId} não encontrada para resposta automática`);
       return;
     }
 
     if (!this.coreConfig) {
-      console.warn("[voice-call] Core config missing; skipping auto-response");
+      console.warn("[voice-call] Configuração do core ausente; pulando resposta automática");
       return;
     }
 
@@ -397,16 +411,16 @@ export class VoiceCallWebhookServer {
       });
 
       if (result.error) {
-        console.error(`[voice-call] Response generation error: ${result.error}`);
+        console.error(`[voice-call] Erro na geração de resposta: ${result.error}`);
         return;
       }
 
       if (result.text) {
-        console.log(`[voice-call] AI response: "${result.text}"`);
+        console.log(`[voice-call] Resposta da IA: "${result.text}"`);
         await this.manager.speak(callId, result.text);
       }
     } catch (err) {
-      console.error(`[voice-call] Auto-response error:`, err);
+      console.error(`[voice-call] Erro de resposta automática:`, err);
     }
   }
 }
@@ -477,7 +491,7 @@ export async function setupTailscaleExposureRoute(opts: {
 }): Promise<string | null> {
   const dnsName = await getTailscaleDnsName();
   if (!dnsName) {
-    console.warn("[voice-call] Could not get Tailscale DNS name");
+    console.warn("[voice-call] Não foi possível obter o nome DNS do Tailscale");
     return null;
   }
 
@@ -492,11 +506,11 @@ export async function setupTailscaleExposureRoute(opts: {
 
   if (code === 0) {
     const publicUrl = `https://${dnsName}${opts.path}`;
-    console.log(`[voice-call] Tailscale ${opts.mode} active: ${publicUrl}`);
+    console.log(`[voice-call] Tailscale ${opts.mode} ativo: ${publicUrl}`);
     return publicUrl;
   }
 
-  console.warn(`[voice-call] Tailscale ${opts.mode} failed`);
+  console.warn(`[voice-call] Tailscale ${opts.mode} falhou`);
   return null;
 }
 

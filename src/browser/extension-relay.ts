@@ -109,13 +109,13 @@ function parseBaseUrl(raw: string): {
 } {
   const parsed = new URL(raw.trim().replace(/\/$/, ""));
   if (parsed.protocol !== "http:" && parsed.protocol !== "https:") {
-    throw new Error(`extension relay cdpUrl must be http(s), got ${parsed.protocol}`);
+    throw new Error(`cdpUrl do relay deve ser http(s), recebido ${parsed.protocol}`);
   }
   const host = parsed.hostname;
   const port =
     parsed.port?.trim() !== "" ? Number(parsed.port) : parsed.protocol === "https:" ? 443 : 80;
   if (!Number.isFinite(port) || port <= 0 || port > 65535) {
-    throw new Error(`extension relay cdpUrl has invalid port: ${parsed.port || "(empty)"}`);
+    throw new Error(`cdpUrl do relay tem porta inválida: ${parsed.port || "(vazia)"}`);
   }
   return { host, port, baseUrl: parsed.toString().replace(/\/$/, "") };
 }
@@ -179,7 +179,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
 }): Promise<ChromeExtensionRelayServer> {
   const info = parseBaseUrl(opts.cdpUrl);
   if (!isLoopbackHost(info.host)) {
-    throw new Error(`extension relay requires loopback cdpUrl host (got ${info.host})`);
+    throw new Error(`o relay da extensão requer host loopback para cdpUrl (recebido ${info.host})`);
   }
 
   const existing = serversByPort.get(info.port);
@@ -204,13 +204,15 @@ export async function ensureChromeExtensionRelayServer(opts: {
   const sendToExtension = async (payload: ExtensionForwardCommandMessage): Promise<unknown> => {
     const ws = extensionWs;
     if (!ws || ws.readyState !== WebSocket.OPEN) {
-      throw new Error("Chrome extension not connected");
+      throw new Error("Extensão do Chrome não conectada");
     }
     ws.send(JSON.stringify(payload));
     return await new Promise<unknown>((resolve, reject) => {
       const timer = setTimeout(() => {
         pendingExtension.delete(payload.id);
-        reject(new Error(`extension request timeout: ${payload.params.method}`));
+        reject(
+          new Error(`tempo limite de requisição da extensão esgotado: ${payload.params.method}`),
+        );
       }, 30_000);
       pendingExtension.set(payload.id, { resolve, reject, timer });
     });
@@ -302,14 +304,14 @@ export async function ensureChromeExtensionRelayServer(opts: {
         const params = (cmd.params ?? {}) as { targetId?: string };
         const targetId = typeof params.targetId === "string" ? params.targetId : undefined;
         if (!targetId) {
-          throw new Error("targetId required");
+          throw new Error("targetId obrigatório");
         }
         for (const t of connectedTargets.values()) {
           if (t.targetId === targetId) {
             return { sessionId: t.sessionId };
           }
         }
-        throw new Error("target not found");
+        throw new Error("alvo não encontrado");
       }
       default: {
         const id = nextExtensionId++;
@@ -336,7 +338,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
       const token = getHeader(req, RELAY_AUTH_HEADER);
       if (!token || token !== relayAuthToken) {
         res.writeHead(401);
-        res.end("Unauthorized");
+        res.end("Não autorizado");
         return;
       }
     }
@@ -401,7 +403,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
       const targetId = decodeURIComponent(activateMatch[1] ?? "").trim();
       if (!targetId) {
         res.writeHead(400);
-        res.end("targetId required");
+        res.end("targetId obrigatório");
         return;
       }
       void (async () => {
@@ -425,7 +427,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
       const targetId = decodeURIComponent(closeMatch[1] ?? "").trim();
       if (!targetId) {
         res.writeHead(400);
-        res.end("targetId required");
+        res.end("targetId obrigatório");
         return;
       }
       void (async () => {
@@ -445,7 +447,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
     }
 
     res.writeHead(404);
-    res.end("not found");
+    res.end("não encontrado");
   });
 
   const wssExtension = new WebSocketServer({ noServer: true });
@@ -457,19 +459,19 @@ export async function ensureChromeExtensionRelayServer(opts: {
     const remote = req.socket.remoteAddress;
 
     if (!isLoopbackAddress(remote)) {
-      rejectUpgrade(socket, 403, "Forbidden");
+      rejectUpgrade(socket, 403, "Proibido");
       return;
     }
 
     const origin = headerValue(req.headers.origin);
     if (origin && !origin.startsWith("chrome-extension://")) {
-      rejectUpgrade(socket, 403, "Forbidden: invalid origin");
+      rejectUpgrade(socket, 403, "Proibido: origem inválida");
       return;
     }
 
     if (pathname === "/extension") {
       if (extensionWs) {
-        rejectUpgrade(socket, 409, "Extension already connected");
+        rejectUpgrade(socket, 409, "Extensão já conectada");
         return;
       }
       wssExtension.handleUpgrade(req, socket, head, (ws) => {
@@ -485,7 +487,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
         return;
       }
       if (!extensionWs) {
-        rejectUpgrade(socket, 503, "Extension not connected");
+        rejectUpgrade(socket, 503, "Extensão não conectada");
         return;
       }
       wssCdp.handleUpgrade(req, socket, head, (ws) => {
@@ -494,7 +496,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
       return;
     }
 
-    rejectUpgrade(socket, 404, "Not Found");
+    rejectUpgrade(socket, 404, "Não Encontrado");
   });
 
   wssExtension.on("connection", (ws) => {
@@ -612,14 +614,14 @@ export async function ensureChromeExtensionRelayServer(opts: {
       extensionWs = null;
       for (const [, pending] of pendingExtension) {
         clearTimeout(pending.timer);
-        pending.reject(new Error("extension disconnected"));
+        pending.reject(new Error("extensão desconectada"));
       }
       pendingExtension.clear();
       connectedTargets.clear();
 
       for (const client of cdpClients) {
         try {
-          client.close(1011, "extension disconnected");
+          client.close(1011, "extensão desconectada");
         } catch {
           // ignore
         }
@@ -649,7 +651,7 @@ export async function ensureChromeExtensionRelayServer(opts: {
         sendResponseToCdp(ws, {
           id: cmd.id,
           sessionId: cmd.sessionId,
-          error: { message: "Extension not connected" },
+          error: { message: "Extensão não conectada" },
         });
         return;
       }
@@ -723,13 +725,13 @@ export async function ensureChromeExtensionRelayServer(opts: {
       serversByPort.delete(port);
       relayAuthByPort.delete(port);
       try {
-        extensionWs?.close(1001, "server stopping");
+        extensionWs?.close(1001, "servidor parando");
       } catch {
         // ignore
       }
       for (const ws of cdpClients) {
         try {
-          ws.close(1001, "server stopping");
+          ws.close(1001, "servidor parando");
         } catch {
           // ignore
         }

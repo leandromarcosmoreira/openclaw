@@ -1,5 +1,6 @@
 import { render } from "lit";
 import { describe, expect, it, vi } from "vitest";
+import { t } from "../../i18n/index.ts";
 import { renderConfig } from "./config.ts";
 
 describe("config view", () => {
@@ -59,7 +60,7 @@ describe("config view", () => {
     );
 
     const saveButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Save",
+      (btn) => btn.textContent?.trim() === t("common.save"),
     );
     expect(saveButton).not.toBeUndefined();
     expect(saveButton?.disabled).toBe(false);
@@ -79,7 +80,7 @@ describe("config view", () => {
     );
 
     const saveButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Save",
+      (btn) => btn.textContent?.trim() === t("common.save"),
     );
     expect(saveButton).not.toBeUndefined();
     expect(saveButton?.disabled).toBe(true);
@@ -98,10 +99,10 @@ describe("config view", () => {
     );
 
     const saveButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Save",
+      (btn) => btn.textContent?.trim() === t("common.save"),
     );
     const applyButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Apply",
+      (btn) => btn.textContent?.trim() === t("config.actions.apply"),
     );
     expect(saveButton).not.toBeUndefined();
     expect(applyButton).not.toBeUndefined();
@@ -122,10 +123,10 @@ describe("config view", () => {
     );
 
     const saveButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Save",
+      (btn) => btn.textContent?.trim() === t("common.save"),
     );
     const applyButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Apply",
+      (btn) => btn.textContent?.trim() === t("config.actions.apply"),
     );
     expect(saveButton).not.toBeUndefined();
     expect(applyButton).not.toBeUndefined();
@@ -145,7 +146,7 @@ describe("config view", () => {
     );
 
     const btn = Array.from(container.querySelectorAll("button")).find(
-      (b) => b.textContent?.trim() === "Raw",
+      (b) => b.textContent?.trim() === t("config.mode.raw"),
     );
     expect(btn).toBeTruthy();
     btn?.click();
@@ -171,7 +172,7 @@ describe("config view", () => {
     );
 
     const btn = Array.from(container.querySelectorAll("button")).find(
-      (b) => b.textContent?.trim() === "Gateway",
+      (b) => b.textContent?.trim() === t("config.sections.gateway"),
     );
     expect(btn).toBeTruthy();
     btn?.click();

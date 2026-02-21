@@ -254,6 +254,7 @@ export function handleControlUiHttpRequest(
       assistantName: identity.name,
       assistantAvatar: avatarValue ?? identity.avatar,
       assistantAgentId: identity.agentId,
+      token: config?.gateway?.controlUi?.allowInsecureAuth ? config.gateway.auth?.token : undefined,
     } satisfies ControlUiBootstrapConfig);
     return true;
   }

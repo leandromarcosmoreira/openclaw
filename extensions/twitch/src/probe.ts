@@ -29,7 +29,7 @@ export async function probeTwitch(
   if (!account.accessToken || !account.username) {
     return {
       ok: false,
-      error: "missing credentials (accessToken, username)",
+      error: "credenciais ausentes (accessToken, username)",
       username: account.username,
       elapsedMs: Date.now() - started,
     };
@@ -72,18 +72,18 @@ export async function probeTwitch(
       // Failure: disconnected (e.g., auth failed)
       disconnectListener = client?.onDisconnect((_manually, reason) => {
         cleanup();
-        reject(reason || new Error("Disconnected"));
+        reject(reason || new Error("Desconectado"));
       });
 
       // Failure: authentication failed
       authFailListener = client?.onAuthenticationFailure(() => {
         cleanup();
-        reject(new Error("Authentication failed"));
+        reject(new Error("Falha na autenticação"));
       });
     });
 
     const timeout = new Promise<never>((_, reject) => {
-      setTimeout(() => reject(new Error(`timeout after ${timeoutMs}ms`)), timeoutMs);
+      setTimeout(() => reject(new Error(`tempo esgotado após ${timeoutMs}ms`)), timeoutMs);
     });
 
     client.connect();

@@ -1,5 +1,6 @@
 import { render } from "lit";
 import { describe, expect, it, vi } from "vitest";
+import { t } from "../../i18n/index.ts";
 import type { SessionsListResult } from "../types.ts";
 import { renderChat, type ChatProps } from "./chat.ts";
 
@@ -66,7 +67,7 @@ describe("chat view", () => {
 
     const indicator = container.querySelector(".compaction-indicator--active");
     expect(indicator).not.toBeNull();
-    expect(indicator?.textContent).toContain("Compacting context...");
+    expect(indicator?.textContent).toContain(t("chat.compactingContext"));
   });
 
   it("renders completion indicator shortly after compaction", () => {
@@ -87,7 +88,7 @@ describe("chat view", () => {
 
     const indicator = container.querySelector(".compaction-indicator--complete");
     expect(indicator).not.toBeNull();
-    expect(indicator?.textContent).toContain("Context compacted");
+    expect(indicator?.textContent).toContain(t("chat.contextCompacted"));
     nowSpy.mockRestore();
   });
 
@@ -125,7 +126,7 @@ describe("chat view", () => {
     );
 
     const stopButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "Stop",
+      (btn) => btn.textContent?.trim() === t("chat.stop"),
     );
     expect(stopButton).not.toBeUndefined();
     stopButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));
@@ -147,7 +148,7 @@ describe("chat view", () => {
     );
 
     const newSessionButton = Array.from(container.querySelectorAll("button")).find(
-      (btn) => btn.textContent?.trim() === "New session",
+      (btn) => btn.textContent?.trim() === t("chat.newSession"),
     );
     expect(newSessionButton).not.toBeUndefined();
     newSessionButton?.dispatchEvent(new MouseEvent("click", { bubbles: true }));

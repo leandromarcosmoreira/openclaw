@@ -14,51 +14,51 @@ export function formatGatewayAuthFailureMessage(params: {
   const isCli = isGatewayCliClient(client);
   const isControlUi = client?.id === GATEWAY_CLIENT_IDS.CONTROL_UI;
   const isWebchat = isWebchatClient(client);
-  const uiHint = "open the dashboard URL and paste the token in Control UI settings";
+  const uiHint = "abra a URL do painel e cole o token nas configurações da Control UI";
   const tokenHint = isCli
-    ? "set gateway.remote.token to match gateway.auth.token"
+    ? "defina gateway.remote.token para corresponder a gateway.auth.token"
     : isControlUi || isWebchat
       ? uiHint
-      : "provide gateway auth token";
+      : "forneça o token de autenticação do gateway";
   const passwordHint = isCli
-    ? "set gateway.remote.password to match gateway.auth.password"
+    ? "defina gateway.remote.password para corresponder a gateway.auth.password"
     : isControlUi || isWebchat
-      ? "enter the password in Control UI settings"
-      : "provide gateway auth password";
+      ? "insira a senha nas configurações da Control UI"
+      : "forneça a senha de autenticação do gateway";
   switch (reason) {
     case "token_missing":
-      return `unauthorized: gateway token missing (${tokenHint})`;
+      return `não autorizado: token do gateway ausente (${tokenHint})`;
     case "token_mismatch":
-      return `unauthorized: gateway token mismatch (${tokenHint})`;
+      return `não autorizado: erro de correspondência do token do gateway (${tokenHint})`;
     case "token_missing_config":
-      return "unauthorized: gateway token not configured on gateway (set gateway.auth.token)";
+      return "não autorizado: token do gateway não configurado no gateway (defina gateway.auth.token)";
     case "password_missing":
-      return `unauthorized: gateway password missing (${passwordHint})`;
+      return `não autorizado: senha do gateway ausente (${passwordHint})`;
     case "password_mismatch":
-      return `unauthorized: gateway password mismatch (${passwordHint})`;
+      return `não autorizado: erro de correspondência da senha do gateway (${passwordHint})`;
     case "password_missing_config":
-      return "unauthorized: gateway password not configured on gateway (set gateway.auth.password)";
+      return "não autorizado: senha do gateway não configurada no gateway (defina gateway.auth.password)";
     case "tailscale_user_missing":
-      return "unauthorized: tailscale identity missing (use Tailscale Serve auth or gateway token/password)";
+      return "não autorizado: identidade tailscale ausente (use a autenticação do Tailscale Serve ou o token/senha do gateway)";
     case "tailscale_proxy_missing":
-      return "unauthorized: tailscale proxy headers missing (use Tailscale Serve or gateway token/password)";
+      return "não autorizado: cabeçalhos de proxy tailscale ausentes (use o Tailscale Serve ou o token/senha do gateway)";
     case "tailscale_whois_failed":
-      return "unauthorized: tailscale identity check failed (use Tailscale Serve auth or gateway token/password)";
+      return "não autorizado: falha na verificação de identidade tailscale (use a autenticação do Tailscale Serve ou o token/senha do gateway)";
     case "tailscale_user_mismatch":
-      return "unauthorized: tailscale identity mismatch (use Tailscale Serve auth or gateway token/password)";
+      return "não autorizado: erro de correspondência da identidade tailscale (use a autenticação do Tailscale Serve ou o token/senha do gateway)";
     case "rate_limited":
-      return "unauthorized: too many failed authentication attempts (retry later)";
+      return "não autorizado: muitas tentativas de autenticação falhadas (tente novamente mais tarde)";
     case "device_token_mismatch":
-      return "unauthorized: device token mismatch (rotate/reissue device token)";
+      return "não autorizado: erro de correspondência do token do dispositivo (gire/reemita o token do dispositivo)";
     default:
       break;
   }
 
   if (authMode === "token" && authProvided === "none") {
-    return `unauthorized: gateway token missing (${tokenHint})`;
+    return `não autorizado: token do gateway ausente (${tokenHint})`;
   }
   if (authMode === "password" && authProvided === "none") {
-    return `unauthorized: gateway password missing (${passwordHint})`;
+    return `não autorizado: senha do gateway ausente (${passwordHint})`;
   }
-  return "unauthorized";
+  return "não autorizado";
 }

@@ -350,7 +350,7 @@ async function connectBrowser(cdpUrl: string): Promise<ConnectedBrowser> {
     if (lastErr instanceof Error) {
       throw lastErr;
     }
-    const message = lastErr ? formatErrorMessage(lastErr) : "CDP connect failed";
+    const message = lastErr ? formatErrorMessage(lastErr) : "Falha na conexão CDP";
     throw new Error(message);
   };
 
@@ -453,7 +453,7 @@ export async function getPageForTargetId(opts: {
   const { browser } = await connectBrowser(opts.cdpUrl);
   const pages = await getAllPages(browser);
   if (!pages.length) {
-    throw new Error("No pages available in the connected browser.");
+    throw new Error("Nenhuma página disponível no navegador conectado.");
   }
   const first = pages[0];
   if (!opts.targetId) {
@@ -467,7 +467,7 @@ export async function getPageForTargetId(opts: {
     if (pages.length === 1) {
       return first;
     }
-    throw new Error("tab not found");
+    throw new Error("aba não encontrada");
   }
   return found;
 }
@@ -490,7 +490,7 @@ export function refLocator(page: Page, ref: string) {
     const info = state?.roleRefs?.[normalized];
     if (!info) {
       throw new Error(
-        `Unknown ref "${normalized}". Run a new snapshot and use a ref from that snapshot.`,
+        `Ref "${normalized}" desconhecida. Execute um novo snapshot e use uma ref desse snapshot.`,
       );
     }
     const scope = state?.roleRefsFrameSelector
@@ -585,7 +585,7 @@ async function tryTerminateExecutionViaCdp(opts: {
   const runWithTimeout = async <T>(work: Promise<T>, ms: number): Promise<T> => {
     let timer: ReturnType<typeof setTimeout> | undefined;
     const timeoutPromise = new Promise<never>((_, reject) => {
-      timer = setTimeout(() => reject(new Error("CDP command timed out")), ms);
+      timer = setTimeout(() => reject(new Error("Comando CDP expirou")), ms);
     });
     try {
       return await Promise.race([work, timeoutPromise]);
@@ -740,7 +740,7 @@ export async function createPageViaPlaywright(opts: { cdpUrl: string; url: strin
   // Get the targetId for this page
   const tid = await pageTargetId(page).catch(() => null);
   if (!tid) {
-    throw new Error("Failed to get targetId for new page");
+    throw new Error("Falha ao obter targetId para nova página");
   }
 
   return {
@@ -778,7 +778,7 @@ export async function focusPageByTargetIdViaPlaywright(opts: {
   const { browser } = await connectBrowser(opts.cdpUrl);
   const page = await findPageByTargetId(browser, opts.targetId, opts.cdpUrl);
   if (!page) {
-    throw new Error("tab not found");
+    throw new Error("aba não encontrada");
   }
   try {
     await page.bringToFront();

@@ -217,13 +217,13 @@ export function attachGatewayWsConnectionHandler(params: {
           ? logWsControl.debug
           : logWsControl.warn;
         logFn(
-          `closed before connect conn=${connId} remote=${remoteAddr ?? "?"} fwd=${logForwardedFor || "n/a"} origin=${logOrigin || "n/a"} host=${logHost || "n/a"} ua=${logUserAgent || "n/a"} code=${code ?? "n/a"} reason=${logReason || "n/a"}`,
+          `fechado antes de conectar conn=${connId} remote=${remoteAddr ?? "?"} fwd=${logForwardedFor || "n/a"} origin=${logOrigin || "n/a"} host=${logHost || "n/a"} ua=${logUserAgent || "n/a"} code=${code ?? "n/a"} motivo=${logReason || "n/a"}`,
           closeContext,
         );
       }
       if (client && isWebchatClient(client.connect.client)) {
         logWsControl.info(
-          `webchat disconnected code=${code} reason=${logReason || "n/a"} conn=${connId}`,
+          `webchat desconectado código=${code} motivo=${logReason || "n/a"} conn=${connId}`,
         );
       }
       if (client?.presenceKey) {

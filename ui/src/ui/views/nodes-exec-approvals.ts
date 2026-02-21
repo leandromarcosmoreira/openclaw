@@ -1,4 +1,5 @@
 import { html, nothing } from "lit";
+import { t } from "../../i18n/index.ts";
 import type {
   ExecApprovalsAllowlistEntry,
   ExecApprovalsFile,
@@ -53,15 +54,15 @@ type ExecApprovalsState = {
 const EXEC_APPROVALS_DEFAULT_SCOPE = "__defaults__";
 
 const SECURITY_OPTIONS: Array<{ value: ExecSecurity; label: string }> = [
-  { value: "deny", label: "Deny" },
-  { value: "allowlist", label: "Allowlist" },
-  { value: "full", label: "Full" },
+  { value: "deny", label: t("nodesExec.security.deny") },
+  { value: "allowlist", label: t("nodesExec.security.allowlist") },
+  { value: "full", label: t("nodesExec.security.full") },
 ];
 
 const ASK_OPTIONS: Array<{ value: ExecAsk; label: string }> = [
-  { value: "off", label: "Off" },
-  { value: "on-miss", label: "On miss" },
-  { value: "always", label: "Always" },
+  { value: "off", label: t("nodesExec.ask.off") },
+  { value: "on-miss", label: t("nodesExec.ask.onMiss") },
+  { value: "always", label: t("nodesExec.ask.always") },
 ];
 
 function normalizeSecurity(value?: string): ExecSecurity {
@@ -450,12 +451,12 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
 
       <div class="list-item">
         <div class="list-main">
-          <div class="list-title">Ask fallback</div>
+          <div class="list-title">${t("nodesExec.askFallback.title")}</div>
           <div class="list-sub">
             ${
               isDefaults
-                ? "Applied when the UI prompt is unavailable."
-                : `Default: ${defaults.askFallback}.`
+                ? t("nodesExec.askFallback.sub")
+                : t("nodesExec.askFallback.useDefault", { default: defaults.askFallback })
             }
           </div>
         </div>
@@ -477,7 +478,7 @@ function renderExecApprovalsPolicy(state: ExecApprovalsState) {
               ${
                 !isDefaults
                   ? html`<option value="__default__" ?selected=${askFallbackValue === "__default__"}>
-                    Use default (${defaults.askFallback})
+                    ${t("nodesExec.askFallback.useDefault", { default: defaults.askFallback })}
                   </option>`
                   : nothing
               }

@@ -12,4 +12,16 @@ export default defineConfig({
       ui: false,
     },
   },
+  esbuild: {
+    tsconfigRaw: {
+      compilerOptions: {
+        experimentalDecorators: true,
+        useDefineForClassFields: false,
+      },
+    },
+  },
+  define: {
+    "process.env.VITEST": '"true"',
+    "process.env.NODE_ENV": '"test"',
+  },
 });

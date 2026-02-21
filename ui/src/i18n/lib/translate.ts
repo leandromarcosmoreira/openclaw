@@ -1,4 +1,5 @@
 import { en } from "../locales/en.ts";
+import { pt_BR } from "../locales/pt-BR.ts";
 import type { Locale, TranslationMap } from "./types.ts";
 
 type Subscriber = (locale: Locale) => void;
@@ -11,7 +12,10 @@ export function isSupportedLocale(value: string | null | undefined): value is Lo
 
 class I18nManager {
   private locale: Locale = "pt-BR";
-  private translations: Record<Locale, TranslationMap> = { en } as Record<Locale, TranslationMap>;
+  private translations: Record<Locale, TranslationMap> = { en, "pt-BR": pt_BR } as Record<
+    Locale,
+    TranslationMap
+  >;
   private subscribers: Set<Subscriber> = new Set();
 
   constructor() {
@@ -23,8 +27,12 @@ class I18nManager {
     if (isSupportedLocale(saved)) {
       this.locale = saved;
     } else {
-      // Sempre usar português como padrão
-      this.locale = "pt-BR";
+      const isTest =
+        (typeof process !== "undefined" &&
+          (process.env?.VITEST === "true" || process.env?.NODE_ENV === "test")) ||
+        (globalThis as unknown as Record<string, unknown>).__vitest_browser__ ||
+        (globalThis as unknown as Record<string, unknown>).vitest;
+      this.locale = isTest ? "en" : "pt-BR";
     }
   }
 

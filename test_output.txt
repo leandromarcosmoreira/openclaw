@@ -1,0 +1,703 @@
+
+> openclaw-control-ui@ test /home/lemoreira/git/integracoes/openclaw/ui
+> vitest run --config vitest.config.ts
+
+
+[1m[46m RUN [49m[22m [36mv4.0.18 [39m[90m/home/lemoreira/git/integracoes/openclaw/ui[39m
+
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+ [32m✓[39m [30m[43m chromium [49m[39m src/i18n/test/translate.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/config-form.browser.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/chat/message-normalizer.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/markdown.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/app-scroll.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/views/chat.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/navigation.test.ts [2m([22m[2m28 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [31m❯[39m [30m[43m chromium [49m[39m src/ui/chat-markdown.browser.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 414[2mms[22m[39m
+[31m     [31m×[31m renders markdown inside tool output sidebar[39m[33m 413[2mms[22m[39m
+ [31m❯[39m [30m[43m chromium [49m[39m src/ui/focus-mode.browser.test.ts [2m([22m[2m1 test[22m[2m | [22m[31m1 failed[39m[2m)[22m[33m 428[2mms[22m[39m
+[31m     [31m×[31m collapses header + sidebar on chat tab only[39m[33m 426[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: zh-CN
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: zh-CN
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/config/form-utils.node.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/views/sessions.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [31m❯[39m [30m[43m chromium [49m[39m src/ui/views/cron.test.ts [2m([22m[2m8 tests[22m[2m | [22m[31m2 failed[39m[2m)[22m[33m 494[2mms[22m[39m
+[31m     [31m×[31m prompts to select a job before showing run history[39m[33m 322[2mms[22m[39m
+     [32m✓[39m loads run history when clicking a job row[32m 3[2mms[22m[39m
+     [32m✓[39m marks the selected job and keeps History button to a single call[32m 2[2mms[22m[39m
+     [32m✓[39m renders run chat links when session keys are present[32m 11[2mms[22m[39m
+[31m     [31m×[31m shows selected job name and sorts run history newest first[39m[32m 149[2mms[22m[39m
+     [32m✓[39m shows webhook delivery option in the form[32m 2[2mms[22m[39m
+     [32m✓[39m normalizes stale announce selection in the form when unsupported[32m 1[2mms[22m[39m
+     [32m✓[39m shows webhook delivery details for jobs[32m 2[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/sessions.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/config.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/usage-helpers.node.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [31m❯[39m [30m[43m chromium [49m[39m src/ui/views/config.browser.test.ts [2m([22m[2m7 tests[22m[2m | [22m[31m4 failed[39m[2m)[22m[33m 738[2mms[22m[39m
+[31m     [31m×[31m allows save when form is unsafe[39m[33m 346[2mms[22m[39m
+[31m     [31m×[31m disables save when schema is missing[39m[32m 142[2mms[22m[39m
+[31m     [31m×[31m disables save and apply when raw is unchanged[39m[32m 102[2mms[22m[39m
+[31m     [31m×[31m enables save and apply when raw changes[39m[32m 134[2mms[22m[39m
+     [32m✓[39m switches mode via the sidebar toggle[32m 3[2mms[22m[39m
+     [32m✓[39m switches sections from the sidebar[32m 9[2mms[22m[39m
+     [32m✓[39m wires search input to onSearchChange[32m 1[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/chat.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/chat/tool-helpers.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/control-ui-bootstrap.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/app-render.helpers.node.test.ts [2m([22m[2m34 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: zh-CN
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: zh-CN
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/format.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/controllers/cron.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/text-direction.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/app-settings.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+[90mstderr[2m | unknown test
+[22m[39mLit is in dev mode. Not recommended for production! See https://lit.dev/msg/dev-mode for more information.
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/uuid.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/views/usage-render-details.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/chat/message-extract.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 2[2mms[22m[39m
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Saved locale in localStorage: null
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Detected isTest: true
+[90mstdout[2m | unknown test
+[22m[39m[I18nManager] Initialized with locale: en
+ [32m✓[39m [30m[43m chromium [49m[39m src/ui/app-gateway.node.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [31m❯[39m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts [2m([22m[2m12 tests[22m[2m | [22m[31m12 failed[39m[2m)[22m[33m 1252[2mms[22m[39m
+[31m     [31m×[31m hydrates the tab from the location[39m[32m 190[2mms[22m[39m
+[31m     [31m×[31m respects /ui base paths[39m[32m 147[2mms[22m[39m
+[31m     [31m×[31m infers nested base paths[39m[32m 90[2mms[22m[39m
+[31m     [31m×[31m honors explicit base path overrides[39m[32m 112[2mms[22m[39m
+[31m     [31m×[31m updates the URL when clicking nav items[39m[32m 87[2mms[22m[39m
+[31m     [31m×[31m resets to the main session when opening chat from sidebar navigation[39m[32m 103[2mms[22m[39m
+[31m     [31m×[31m keeps chat and nav usable on narrow viewports[39m[32m 123[2mms[22m[39m
+[31m     [31m×[31m auto-scrolls chat history to the latest message[39m[32m 82[2mms[22m[39m
+[31m     [31m×[31m hydrates token from URL params and strips it[39m[32m 82[2mms[22m[39m
+[31m     [31m×[31m strips password URL params without importing them[39m[32m 68[2mms[22m[39m
+[31m     [31m×[31m hydrates token from URL params even when settings already set[39m[32m 83[2mms[22m[39m
+[31m     [31m×[31m hydrates token from URL hash and strips it[39m[32m 85[2mms[22m[39m
+
+[31m⎯⎯⎯⎯⎯⎯[39m[1m[41m Failed Tests 20 [49m[22m[31m⎯⎯⎯⎯⎯⎯⎯[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/chat-markdown.browser.test.ts[2m > [22mchat markdown rendering[2m > [22mrenders markdown inside tool output sidebar
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/chat-markdown.browser.test.ts/chat-markdown-rendering-renders-markdown-inside-tool-output-sidebar-1.png[22m
+
+[36m [2m❯[22m src/ui/chat-markdown.browser.test.ts:[2m29:25[22m[39m
+    [90m 27| [39m      card.querySelector(".chat-tool-card__preview, .chat-tool-card__i…
+    [90m 28| [39m    )[33m;[39m
+    [90m 29| [39m    [34mexpect[39m(toolCard)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m 30| [39m    toolCard[33m?.[39m[34mclick[39m()[33m;[39m
+    [90m 31| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/focus-mode.browser.test.ts[2m > [22mchat focus mode[2m > [22mcollapses header + sidebar on chat tab only
+[31m[1mAssertionError[22m: expected null not to be null[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/focus-mode.browser.test.ts/chat-focus-mode-collapses-header---sidebar-on-chat-tab-only-1.png[22m
+
+[36m [2m❯[22m src/ui/focus-mode.browser.test.ts:[2m12:22[22m[39m
+    [90m 10| [39m
+    [90m 11| [39m    [35mconst[39m shell [33m=[39m app[33m.[39m[34mquerySelector[39m([32m".shell"[39m)[33m;[39m
+    [90m 12| [39m    [34mexpect[39m(shell)[33m.[39mnot[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   | [39m                     [31m^[39m
+    [90m 13| [39m    [34mexpect[39m(shell[33m?.[39mclassList[33m.[39m[34mcontains[39m([32m"shell--chat-focus"[39m))[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m 14| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mhydrates the tab from the location
+[31m[1mAssertionError[22m: expected undefined to be 'sessions' // Object.is equality[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-hydrates-the-tab-from-the-location-1.png[22m
+
+[32m- Expected:[39m 
+"sessions"
+
+[31m+ Received:[39m 
+undefined
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m22:20[22m[39m
+    [90m 20| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m 21| [39m
+    [90m 22| [39m    [34mexpect[39m(app[33m.[39mtab)[33m.[39m[34mtoBe[39m([32m"sessions"[39m)[33m;[39m
+    [90m   | [39m                   [31m^[39m
+    [90m 23| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/sessions"[39m)[33m;[39m
+    [90m 24| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mrespects /ui base paths
+[31m[1mAssertionError[22m: expected undefined to be '/ui' // Object.is equality[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-respects--ui-base-paths-1.png[22m
+
+[32m- Expected:[39m 
+"/ui"
+
+[31m+ Received:[39m 
+undefined
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m30:25[22m[39m
+    [90m 28| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m 29| [39m
+    [90m 30| [39m    [34mexpect[39m(app[33m.[39mbasePath)[33m.[39m[34mtoBe[39m([32m"/ui"[39m)[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m 31| [39m    [34mexpect[39m(app[33m.[39mtab)[33m.[39m[34mtoBe[39m([32m"cron"[39m)[33m;[39m
+    [90m 32| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/ui/cron"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22minfers nested base paths
+[31m[1mAssertionError[22m: expected undefined to be '/apps/openclaw' // Object.is equality[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-infers-nested-base-paths-1.png[22m
+
+[32m- Expected:[39m 
+"/apps/openclaw"
+
+[31m+ Received:[39m 
+undefined
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m39:25[22m[39m
+    [90m 37| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m 38| [39m
+    [90m 39| [39m    [34mexpect[39m(app[33m.[39mbasePath)[33m.[39m[34mtoBe[39m([32m"/apps/openclaw"[39m)[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m 40| [39m    [34mexpect[39m(app[33m.[39mtab)[33m.[39m[34mtoBe[39m([32m"cron"[39m)[33m;[39m
+    [90m 41| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/apps/openclaw/cron"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mhonors explicit base path overrides
+[31m[1mAssertionError[22m: expected undefined to be '/openclaw' // Object.is equality[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-honors-explicit-base-path-overrides-1.png[22m
+
+[32m- Expected:[39m 
+"/openclaw"
+
+[31m+ Received:[39m 
+undefined
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m49:25[22m[39m
+    [90m 47| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m 48| [39m
+    [90m 49| [39m    [34mexpect[39m(app[33m.[39mbasePath)[33m.[39m[34mtoBe[39m([32m"/openclaw"[39m)[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m 50| [39m    [34mexpect[39m(app[33m.[39mtab)[33m.[39m[34mtoBe[39m([32m"sessions"[39m)[33m;[39m
+    [90m 51| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/openclaw/sessions"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mupdates the URL when clicking nav items
+[31m[1mAssertionError[22m: expected null not to be null[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-updates-the-URL-when-clicking-nav-items-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m59:21[22m[39m
+    [90m 57| [39m
+    [90m 58| [39m    const link = app.querySelector<HTMLAnchorElement>('a.nav-item[href…
+    [90m 59| [39m    [34mexpect[39m(link)[33m.[39mnot[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   | [39m                    [31m^[39m
+    [90m 60| [39m    link?.dispatchEvent(new MouseEvent("click", { bubbles: true, cance…
+    [90m 61| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[7/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mresets to the main session when opening chat from sidebar navigation
+[31m[1mAssertionError[22m: expected null not to be null[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-resets-to-the-main-session-when-opening-chat-from-sidebar-navigation-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m72:21[22m[39m
+    [90m 70| [39m
+    [90m 71| [39m    const link = app.querySelector<HTMLAnchorElement>('a.nav-item[href…
+    [90m 72| [39m    [34mexpect[39m(link)[33m.[39mnot[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   | [39m                    [31m^[39m
+    [90m 73| [39m    link?.dispatchEvent(new MouseEvent("click", { bubbles: true, cance…
+    [90m 74| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[8/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mkeeps chat and nav usable on narrow viewports
+[31m[1mAssertionError[22m: expected null not to be null[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-keeps-chat-and-nav-usable-on-narrow-viewports-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m89:22[22m[39m
+    [90m 87| [39m
+    [90m 88| [39m    [35mconst[39m split [33m=[39m app[33m.[39m[34mquerySelector[39m([32m".chat-split-container"[39m)[33m;[39m
+    [90m 89| [39m    [34mexpect[39m(split)[33m.[39mnot[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   | [39m                     [31m^[39m
+    [90m 90| [39m    [35mif[39m (split) {
+    [90m 91| [39m      [34mexpect[39m([34mgetComputedStyle[39m(split)[33m.[39mposition)[33m.[39mnot[33m.[39m[34mtoBe[39m([32m"fixed"[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[9/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mauto-scrolls chat history to the latest message
+[31m[1mAssertionError[22m: expected null not to be null[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-auto-scrolls-chat-history-to-the-latest-message-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m115:33[22m[39m
+    [90m113| [39m
+    [90m114| [39m    const initialContainer: HTMLElement | null = app.querySelector(".c…
+    [90m115| [39m    [34mexpect[39m(initialContainer)[33m.[39mnot[33m.[39m[34mtoBeNull[39m()[33m;[39m
+    [90m   | [39m                                [31m^[39m
+    [90m116| [39m    [35mif[39m ([33m![39minitialContainer) {
+    [90m117| [39m      [35mreturn[39m[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[10/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mhydrates token from URL params and strips it
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'token')[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-hydrates-token-from-URL-params-and-strips-it-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m153:24[22m[39m
+    [90m151| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m152| [39m
+    [90m153| [39m    [34mexpect[39m(app[33m.[39msettings[33m.[39mtoken)[33m.[39m[34mtoBe[39m([32m"abc123"[39m)[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m154| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/ui/overview"[39m)[33m;[39m
+    [90m155| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39msearch)[33m.[39m[34mtoBe[39m([32m""[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[11/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mstrips password URL params without importing them
+[31m[1mAssertionError[22m: expected undefined to be '' // Object.is equality[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-strips-password-URL-params-without-importing-them-1.png[22m
+
+[32m- Expected:[39m 
+""
+
+[31m+ Received:[39m 
+undefined
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m162:25[22m[39m
+    [90m160| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m161| [39m
+    [90m162| [39m    [34mexpect[39m(app[33m.[39mpassword)[33m.[39m[34mtoBe[39m([32m""[39m)[33m;[39m
+    [90m   | [39m                        [31m^[39m
+    [90m163| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/ui/overview"[39m)[33m;[39m
+    [90m164| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39msearch)[33m.[39m[34mtoBe[39m([32m""[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[12/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mhydrates token from URL params even when settings already set
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'token')[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-hydrates-token-from-URL-params-even-when-settings-already-set-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m175:24[22m[39m
+    [90m173| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m174| [39m
+    [90m175| [39m    [34mexpect[39m(app[33m.[39msettings[33m.[39mtoken)[33m.[39m[34mtoBe[39m([32m"abc123"[39m)[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m176| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/ui/overview"[39m)[33m;[39m
+    [90m177| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39msearch)[33m.[39m[34mtoBe[39m([32m""[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[13/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/navigation.browser.test.ts[2m > [22mcontrol UI routing[2m > [22mhydrates token from URL hash and strips it
+[31m[1mTypeError[22m: Cannot read properties of undefined (reading 'token')[39m
+
+Failure screenshot:
+  - [2msrc/ui/__screenshots__/navigation.browser.test.ts/control-UI-routing-hydrates-token-from-URL-hash-and-strips-it-1.png[22m
+
+[36m [2m❯[22m src/ui/navigation.browser.test.ts:[2m184:24[22m[39m
+    [90m182| [39m    [35mawait[39m app[33m.[39mupdateComplete[33m;[39m
+    [90m183| [39m
+    [90m184| [39m    [34mexpect[39m(app[33m.[39msettings[33m.[39mtoken)[33m.[39m[34mtoBe[39m([32m"abc123"[39m)[33m;[39m
+    [90m   | [39m                       [31m^[39m
+    [90m185| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mpathname)[33m.[39m[34mtoBe[39m([32m"/ui/overview"[39m)[33m;[39m
+    [90m186| [39m    [34mexpect[39m(window[33m.[39mlocation[33m.[39mhash)[33m.[39m[34mtoBe[39m([32m""[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[14/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/config.browser.test.ts[2m > [22mconfig view[2m > [22mallows save when form is unsafe
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/config.browser.test.ts/config-view-allows-save-when-form-is-unsafe-1.png[22m
+
+[36m [2m❯[22m src/ui/views/config.browser.test.ts:[2m64:27[22m[39m
+    [90m 62| [39m      (btn) [33m=>[39m btn[33m.[39mtextContent[33m?.[39m[34mtrim[39m() [33m===[39m [32m"Save"[39m[33m,[39m
+    [90m 63| [39m    )[33m;[39m
+    [90m 64| [39m    [34mexpect[39m(saveButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 65| [39m    [34mexpect[39m(saveButton[33m?.[39mdisabled)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+    [90m 66| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[15/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/config.browser.test.ts[2m > [22mconfig view[2m > [22mdisables save when schema is missing
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/config.browser.test.ts/config-view-disables-save-when-schema-is-missing-1.png[22m
+
+[36m [2m❯[22m src/ui/views/config.browser.test.ts:[2m84:27[22m[39m
+    [90m 82| [39m      (btn) [33m=>[39m btn[33m.[39mtextContent[33m?.[39m[34mtrim[39m() [33m===[39m [32m"Save"[39m[33m,[39m
+    [90m 83| [39m    )[33m;[39m
+    [90m 84| [39m    [34mexpect[39m(saveButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m 85| [39m    [34mexpect[39m(saveButton[33m?.[39mdisabled)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+    [90m 86| [39m  })[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[16/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/config.browser.test.ts[2m > [22mconfig view[2m > [22mdisables save and apply when raw is unchanged
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/config.browser.test.ts/config-view-disables-save-and-apply-when-raw-is-unchanged-1.png[22m
+
+[36m [2m❯[22m src/ui/views/config.browser.test.ts:[2m106:27[22m[39m
+    [90m104| [39m      (btn) [33m=>[39m btn[33m.[39mtextContent[33m?.[39m[34mtrim[39m() [33m===[39m [32m"Apply"[39m[33m,[39m
+    [90m105| [39m    )[33m;[39m
+    [90m106| [39m    [34mexpect[39m(saveButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m107| [39m    [34mexpect[39m(applyButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m108| [39m    [34mexpect[39m(saveButton[33m?.[39mdisabled)[33m.[39m[34mtoBe[39m([35mtrue[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[17/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/config.browser.test.ts[2m > [22mconfig view[2m > [22menables save and apply when raw changes
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/config.browser.test.ts/config-view-enables-save-and-apply-when-raw-changes-1.png[22m
+
+[36m [2m❯[22m src/ui/views/config.browser.test.ts:[2m130:27[22m[39m
+    [90m128| [39m      (btn) [33m=>[39m btn[33m.[39mtextContent[33m?.[39m[34mtrim[39m() [33m===[39m [32m"Apply"[39m[33m,[39m
+    [90m129| [39m    )[33m;[39m
+    [90m130| [39m    [34mexpect[39m(saveButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                          [31m^[39m
+    [90m131| [39m    [34mexpect[39m(applyButton)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m132| [39m    [34mexpect[39m(saveButton[33m?.[39mdisabled)[33m.[39m[34mtoBe[39m([35mfalse[39m)[33m;[39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[18/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/cron.test.ts[2m > [22mcron view[2m > [22mprompts to select a job before showing run history
+[31m[1mAssertionError[22m: expected '\n    \n      \n        Scheduler\n  …' to contain 'Select a job to inspect run history.'[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/cron.test.ts/cron-view-prompts-to-select-a-job-before-showing-run-history-1.png[22m
+
+[32m- Expected[39m
+[31m+ Received[39m
+
+[32m- Select a job to inspect run history.[39m
+[31m+[39m
+[31m+     [39m
+[31m+       [39m
+[31m+         Scheduler[39m
+[31m+         Gateway-owned cron scheduler status.[39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Enabled[39m
+[31m+             [39m
+[31m+               n/a[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Jobs[39m
+[31m+             n/a[39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Next wake[39m
+[31m+             n/a[39m
+[31m+           [39m
+[31m+         [39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Refresh[39m
+[31m+           [39m
+[31m+           [39m
+[31m+         [39m
+[31m+       [39m
+[31m+[39m
+[31m+       [39m
+[31m+         New Job[39m
+[31m+         Create a scheduled wakeup or agent run.[39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Name[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Description[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Agent ID[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Enabled[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Schedule[39m
+[31m+             [39m
+[31m+               Every[39m
+[31m+               At[39m
+[31m+               Cron[39m
+[31m+             [39m
+[31m+           [39m
+[31m+         [39m
+[31m+         [39m
+[31m+       [39m
+[31m+         [39m
+[31m+           Every[39m
+[31m+           [39m
+[31m+         [39m
+[31m+         [39m
+[31m+           Unit[39m
+[31m+           [39m
+[31m+             Minutes[39m
+[31m+             Hours[39m
+[31m+             Days[39m
+[31m+           [39m
+[31m+         [39m
+[31m+       [39m
+[31m+     [39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Session[39m
+[31m+             [39m
+[31m+               Main[39m
+[31m+               Isolated[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Wake mode[39m
+[31m+             [39m
+[31m+               Now[39m
+[31m+               Next heartbeat[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+             Payload[39m
+[31m+             [39m
+[31m+               System event[39m
+[31m+               Agent turn[39m
+[31m+             [39m
+[31m+           [39m
+[31m+         [39m
+[31m+         [39m
+[31m+           Agent message[39m
+[31m+           [39m
+[31m+         [39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Delivery[39m
+[31m+             [39m
+[31m+               [39m
+[31m+                       Announce summary (default)[39m
+[31m+                     [39m
+[31m+               Webhook POST[39m
+[31m+               None (internal)[39m
+[31m+             [39m
+[31m+           [39m
+[31m+           [39m
+[31m+                   [39m
+[31m+                     Timeout (seconds)[39m
+[31m+                     [39m
+[31m+                   [39m
+[31m+                 [39m
+[31m+           [39m
+[31m+                   [39m
+[31m+                     Channel[39m
+[31m+                     [39m
+[31m+                             [39m
+[31m+                               [39m
+[31m+                                     Last[39m
+[31m+                                   [39m
+[31m+                             [39m
+[31m+                           [39m
+[31m+                   [39m
+[31m+                   [39m
+[31m+                           [39m
+[31m+                             To[39m
+[31m+                             [39m
+[31m+                           [39m
+[31m+                         [39m
+[31m+                 [39m
+[31m+         [39m
+[31m+         [39m
+[31m+           [39m
+[31m+             Add job[39m
+[31m+           [39m
+[31m+         [39m
+[31m+       [39m
+[31m+     [39m
+[31m+[39m
+[31m+     [39m
+[31m+       Jobs[39m
+[31m+       All scheduled jobs stored on the gateway.[39m
+[31m+       [39m
+[31m+               No jobs yet.[39m
+[31m+             [39m
+[31m+     [39m
+[31m+[39m
+[31m+     [39m
+[31m+       Run History[39m
+[31m+       Latest runs for (select a job).[39m
+[31m+       [39m
+[31m+               cron.history.noSelectedJob[39m
+[31m+             [39m
+[31m+     [39m
+[31m+   [39m
+
+[36m [2m❯[22m src/ui/views/cron.test.ts:[2m50:34[22m[39m
+    [90m 48| [39m    [34mrender[39m([34mrenderCron[39m([34mcreateProps[39m())[33m,[39m container)[33m;[39m
+    [90m 49| [39m
+    [90m 50| [39m    expect(container.textContent).toContain("Select a job to inspect r…
+    [90m   | [39m                                 [31m^[39m
+    [90m 51| [39m  })[33m;[39m
+    [90m 52| [39m
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[19/20]⎯[22m[39m
+
+[41m[1m FAIL [22m[49m [30m[43m chromium [49m[39m src/ui/views/cron.test.ts[2m > [22mcron view[2m > [22mshows selected job name and sorts run history newest first
+[31m[1mAssertionError[22m: expected undefined not to be undefined[39m
+
+Failure screenshot:
+  - [2msrc/ui/views/__screenshots__/cron.test.ts/cron-view-shows-selected-job-name-and-sorts-run-history-newest-first-1.png[22m
+
+[36m [2m❯[22m src/ui/views/cron.test.ts:[2m153:31[22m[39m
+    [90m151| [39m      (card) => card.querySelector(".card-title")?.textContent?.trim()…
+    [90m152| [39m    )[33m;[39m
+    [90m153| [39m    [34mexpect[39m(runHistoryCard)[33m.[39mnot[33m.[39m[34mtoBeUndefined[39m()[33m;[39m
+    [90m   | [39m                              [31m^[39m
+    [90m154| [39m
+    [90m155| [39m    [35mconst[39m summaries [33m=[39m [33mArray[39m[33m.[39m[35mfrom[39m(
+
+[31m[2m⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[20/20]⎯[22m[39m
+
+
+[2m Test Files [22m [1m[31m5 failed[39m[22m[2m | [22m[1m[32m24 passed[39m[22m[90m (29)[39m
+[2m      Tests [22m [1m[31m20 failed[39m[22m[2m | [22m[1m[32m242 passed[39m[22m[90m (262)[39m
+[2m   Start at [22m 21:38:37
+[2m   Duration [22m 3.86s[2m (transform 0ms, setup 0ms, import 5.30s, tests 3.52s, environment 0ms)[22m
+
+ ELIFECYCLE  Test failed. See above for more details.

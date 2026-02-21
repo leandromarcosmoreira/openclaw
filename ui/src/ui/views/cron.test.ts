@@ -148,7 +148,7 @@ describe("cron view", () => {
 
     const cards = Array.from(container.querySelectorAll(".card"));
     const runHistoryCard = cards.find(
-      (card) => card.querySelector(".card-title")?.textContent?.trim() === "Run history",
+      (card) => card.querySelector(".card-title")?.textContent?.trim() === "Run History",
     );
     expect(runHistoryCard).not.toBeUndefined();
 

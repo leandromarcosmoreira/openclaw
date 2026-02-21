@@ -37,5 +37,13 @@ export default defineConfig(() => {
       port: 5173,
       strictPort: true,
     },
+    esbuild: {
+      tsconfigRaw: {
+        compilerOptions: {
+          experimentalDecorators: true,
+          useDefineForClassFields: false,
+        },
+      },
+    },
   };
 });

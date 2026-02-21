@@ -293,7 +293,7 @@ function renderAgentHeader(
 ) {
   const badge = agentBadgeText(agent.id, defaultId);
   const displayName = normalizeAgentLabel(agent);
-  const subtitle = agent.identity?.theme?.trim() || "Agent workspace and routing.";
+  const subtitle = agent.identity?.theme?.trim() || t("agents.defaultSubtitle");
   const emoji = resolveAgentEmoji(agent, agentIdentity);
   return html`
     <section class="card agent-header">
@@ -463,7 +463,7 @@ function renderAgentOverview(params: {
             <input
               .value=${fallbackText}
               ?disabled=${!configForm || configLoading || configSaving}
-              placeholder="provedor/modelo, provedor/modelo"
+              placeholder=${t("agents.fallbacksPlaceholder")}
               @input=${(e: Event) =>
                 onModelFallbacksChange(
                   agent.id,

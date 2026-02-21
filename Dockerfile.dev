@@ -23,8 +23,8 @@ RUN pnpm build || true
 
 # Build UI assets (required for Control UI)
 RUN cd ui && pnpm install --ignore-scripts && pnpm build || true
-# Create symlink for Control UI to find assets
-RUN ln -sf /app/dist /app/ui/dist
+# Create symlink for Control UI to find assets at /app/dist/control-ui
+RUN ln -sf /app/ui/dist /app/dist/control-ui
 
 # Expose port
 EXPOSE 18789

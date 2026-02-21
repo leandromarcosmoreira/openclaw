@@ -1,6 +1,6 @@
 import { html, nothing } from "lit";
+import { t } from "../../i18n/index.ts";
 import { formatRelativeTimestamp } from "../format.ts";
-import { t } from "../i18n/index.ts";
 import { pathForTab } from "../navigation.ts";
 import { formatSessionTokens } from "../presenter.ts";
 import type { GatewaySessionRow, SessionsListResult } from "../types.ts";
@@ -36,10 +36,10 @@ export type SessionsProps = {
 const THINK_LEVELS = ["", "off", "minimal", "low", "medium", "high", "xhigh"] as const;
 const BINARY_THINK_LEVELS = ["", "off", "on"] as const;
 const VERBOSE_LEVELS = [
-  { value: "", label: "inherit" },
-  { value: "off", label: "off (explicit)" },
-  { value: "on", label: "on" },
-  { value: "full", label: "full" },
+  { value: "", label: t("sessions.verboseOptions.inherit") },
+  { value: "off", label: t("sessions.verboseOptions.offExplicit") },
+  { value: "on", label: t("sessions.verboseOptions.on") },
+  { value: "full", label: t("sessions.verboseOptions.full") },
 ] as const;
 const REASONING_LEVELS = ["", "off", "on", "stream"] as const;
 
@@ -82,7 +82,7 @@ function withCurrentLabeledOption(
   if (options.some((option) => option.value === current)) {
     return [...options];
   }
-  return [...options, { value: current, label: `${current} (custom)` }];
+  return [...options, { value: current, label: t("sessions.customOption", { value: current }) }];
 }
 
 function resolveThinkLevelDisplay(value: string, isBinary: boolean): string {
@@ -275,7 +275,7 @@ function renderRow(
           ${thinkLevels.map(
             (level) =>
               html`<option value=${level} ?selected=${thinking === level}>
-                ${level || "inherit"}
+                ${level || t("sessions.inherit")}
               </option>`,
           )}
         </select>
@@ -307,7 +307,7 @@ function renderRow(
           ${reasoningLevels.map(
             (level) =>
               html`<option value=${level} ?selected=${reasoning === level}>
-                ${level || "inherit"}
+                ${level || t("sessions.inherit")}
               </option>`,
           )}
         </select>

@@ -1,4 +1,5 @@
 import { html, nothing } from "lit";
+import { t } from "../../i18n/index.ts";
 import { icons } from "../icons.ts";
 import type { ConfigUiHints } from "../types.ts";
 import { renderNode } from "./config-form.node.ts";
@@ -239,39 +240,81 @@ const sectionIcons = {
 // Section metadata
 export const SECTION_META: Record<string, { label: string; description: string }> = {
   env: {
-    label: "Environment Variables",
-    description: "Environment variables passed to the gateway process",
+    label: t("config.sections.env"),
+    description: t("config.sectionDescs.env"),
   },
-  update: { label: "Updates", description: "Auto-update settings and release channel" },
-  agents: { label: "Agents", description: "Agent configurations, models, and identities" },
-  auth: { label: "Authentication", description: "API keys and authentication profiles" },
+  update: {
+    label: t("config.sections.update"),
+    description: t("config.sectionDescs.update"),
+  },
+  agents: {
+    label: t("config.sections.agents"),
+    description: t("config.sectionDescs.agents"),
+  },
+  auth: {
+    label: t("config.sections.auth"),
+    description: t("config.sectionDescs.auth"),
+  },
   channels: {
-    label: "Channels",
-    description: "Messaging channels (Telegram, Discord, Slack, etc.)",
+    label: t("config.sections.channels"),
+    description: t("config.sectionDescs.channels"),
   },
-  messages: { label: "Messages", description: "Message handling and routing settings" },
-  commands: { label: "Commands", description: "Custom slash commands" },
-  hooks: { label: "Hooks", description: "Webhooks and event hooks" },
-  skills: { label: "Skills", description: "Skill packs and capabilities" },
-  tools: { label: "Tools", description: "Tool configurations (browser, search, etc.)" },
-  gateway: { label: "Gateway", description: "Gateway server settings (port, auth, binding)" },
-  wizard: { label: "Setup Wizard", description: "Setup wizard state and history" },
+  messages: {
+    label: t("config.sections.messages"),
+    description: t("config.sectionDescs.messages"),
+  },
+  commands: {
+    label: t("config.sections.commands"),
+    description: t("config.sectionDescs.commands"),
+  },
+  hooks: {
+    label: t("config.sections.hooks"),
+    description: t("config.sectionDescs.hooks"),
+  },
+  skills: {
+    label: t("config.sections.skills"),
+    description: t("config.sectionDescs.skills"),
+  },
+  tools: {
+    label: t("config.sections.tools"),
+    description: t("config.sectionDescs.tools"),
+  },
+  gateway: {
+    label: t("config.sections.gateway"),
+    description: t("config.sectionDescs.gateway"),
+  },
+  wizard: {
+    label: t("config.sections.wizard"),
+    description: t("config.sectionDescs.wizard"),
+  },
   // Additional sections
-  meta: { label: "Metadata", description: "Gateway metadata and version information" },
-  logging: { label: "Logging", description: "Log levels and output configuration" },
-  browser: { label: "Browser", description: "Browser automation settings" },
-  ui: { label: "UI", description: "User interface preferences" },
-  models: { label: "Models", description: "AI model configurations and providers" },
-  bindings: { label: "Bindings", description: "Key bindings and shortcuts" },
-  broadcast: { label: "Broadcast", description: "Broadcast and notification settings" },
-  audio: { label: "Audio", description: "Audio input/output settings" },
-  session: { label: "Session", description: "Session management and persistence" },
-  cron: { label: "Cron", description: "Scheduled tasks and automation" },
-  web: { label: "Web", description: "Web server and API settings" },
-  discovery: { label: "Discovery", description: "Service discovery and networking" },
-  canvasHost: { label: "Canvas Host", description: "Canvas rendering and display" },
-  talk: { label: "Talk", description: "Voice and speech settings" },
-  plugins: { label: "Plugins", description: "Plugin management and extensions" },
+  meta: { label: t("config.sections.meta"), description: t("config.sectionDescs.meta") },
+  logging: { label: t("config.sections.logging"), description: t("config.sectionDescs.logging") },
+  browser: { label: t("config.sections.browser"), description: t("config.sectionDescs.browser") },
+  ui: { label: t("config.sections.ui"), description: t("config.sectionDescs.ui") },
+  models: { label: t("config.sections.models"), description: t("config.sectionDescs.models") },
+  bindings: {
+    label: t("config.sections.bindings"),
+    description: t("config.sectionDescs.bindings"),
+  },
+  broadcast: {
+    label: t("config.sections.broadcast"),
+    description: t("config.sectionDescs.broadcast"),
+  },
+  audio: { label: t("config.sections.audio"), description: t("config.sectionDescs.audio") },
+  session: { label: t("config.sections.session"), description: t("config.sectionDescs.session") },
+  cron: { label: t("config.sections.cron"), description: t("config.sectionDescs.cron") },
+  web: { label: t("config.sections.web"), description: t("config.sectionDescs.web") },
+  discovery: {
+    label: t("config.sections.discovery"),
+    description: t("config.sectionDescs.discovery"),
+  },
+  canvasHost: {
+    label: t("config.sections.canvasHost"),
+    description: t("config.sectionDescs.canvasHost"),
+  },
+  talk: { label: t("config.sections.talk"), description: t("config.sectionDescs.talk") },
+  plugins: { label: t("config.sections.plugins"), description: t("config.sectionDescs.plugins") },
 };
 
 function getSectionIcon(key: string) {
